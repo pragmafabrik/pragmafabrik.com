@@ -1,3 +1,4 @@
 vendor/*
 .ctags
 logs/*
+composer.lock
