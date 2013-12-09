@@ -4,6 +4,9 @@
 // with your configuration parameters.
 
 // pomm database configuration
-$app['config.pomm.dsn'] = array('prod' => array(), 'dev' => array('my_db' => array('dsn' => 'pgsql://greg/greg', 'name' => 'pragmafabrik', 'class' => '\Model\PragmaDatabase')));
+$app['config.pomm.dsn'] = array(
+    'prod' => array(), 
+    'dev' => array('my_db' => array('dsn' => 'pgsql://greg/greg', 'name' => 'pragmafabrik', 'class' => '\Model\PragmaDatabase'))
+);
 
 // put your configuration here

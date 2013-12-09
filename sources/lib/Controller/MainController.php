@@ -15,18 +15,38 @@ class MainController implements ControllerProviderInterface
     {
         $this->app = $app;
         $controller_collection = $app['controllers_factory'];
-        $controller_collection->get('/', array($this, 'index'))->bind('index');
+        $controller_collection->get('/', array($this, 'executeIndex'))->bind('main_index');
+        $controller_collection->get('/navbar', array($this, 'executeNavbar'))->bind('main_navbar');
+        $controller_collection->get('/who', array($this, 'executeWho'))->bind('main_who');
+        $controller_collection->get('/what', array($this, 'executeWhat'))->bind('main_what');
+        $controller_collection->get('/informations', array($this, 'executeInformations'))->bind('main_informations');
 
         return $controller_collection;
     }
 
-    public function index()
+    public function executeIndex()
     {
-        $this->app['pomm.connection']
-            ->getMapFor('\Model\Pragmafabrik\Pragmafabrik\News')
-            ->findAll();
+        return $this->app["twig"]->render(sprintf("index_%s.html.twig", $this->getLang()));
+    }
 
-        return $this->app['twig']->render('index.html.twig');
+    public function executeNavbar()
+    {
+        return $this->app["twig"]->render(sprintf("_navbar_%s.html.twig", $this->getLang()));
+    }
+
+    protected function getLang()
+    {
+        if ($this->app['request']->query->has('lang'))
+        {
+            $lang = $this->app['request']->query->get('lang');
+            $lang = in_array($lang, array('en')) ? $lang : 'fr';
+            $this->app['session']->set('culture', $lang);
+        }
+        elseif (!$this->app['session']->has('culture'))
+        {
+            $this->app['session']->set('culture', 'fr');
+        }
+
+        return $this->app['session']->get('culture');
     }
 }
-

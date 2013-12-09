@@ -5,6 +5,7 @@ use \Symfony\Component\HttpFoundation\Response;
 
 $app = require "bootstrap.php";
 $app->mount('/', new \Controller\MainController());
+$app->mount('/blog', new \Controller\BlogController());
 
 $app->error(function(Exception $e, $code) use ($app) {
 

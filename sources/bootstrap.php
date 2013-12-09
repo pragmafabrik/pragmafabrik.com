@@ -1,7 +1,6 @@
 <?php #sources/bootstrap.php
 
-use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
+use Silex\Provider;
 
 // This script sets up the application DI with services.
 
@@ -27,8 +26,6 @@ require PROJECT_DIR.'/sources/config/config.php';
 
 // extensions registration
 
-use Silex\Provider;
-
 $app->register(new Provider\UrlGeneratorServiceProvider());
 $app->register(new Provider\SessionServiceProvider());
 $app->register(new Provider\TwigServiceProvider(), array(
@@ -42,15 +39,15 @@ $app->register(new \Pomm\Silex\PommServiceProvider(), array(
 $app['loader'] = $loader;
 $app['pomm.connection'] = $app->share(function() use ($app) { return $app['pomm']
     ->getDatabase()
-    ->createConnection();
+    ->getConnection();
     });
 
 // set DEBUG mode or not
 if (preg_match('/^dev/', ENV))
 {
     $app['debug'] = true;
-    $app['logger'] = $app->share(function() use ($app) { $log = new Logger('app'); $log->pushHandler(new StreamHandler(PROJECT_DIR.'/logs/application.log')); return $log; });
-    $app['pomm.connection'] = $app->share($app->extend('pomm.connection', function($connection, $app) { $connection->setLogger($app['logger']); return $connection; }));
+    $app->register(new Provider\MonologServiceProvider(), array('monolog.logfile' => PROJECT_DIR.'/logs/application.log'));
+    $app['pomm.connection'] = $app->share($app->extend('pomm.connection', function($connection, $app) { $connection->setLogger($app['monolog']); return $connection; }));
 }
 
 return $app;

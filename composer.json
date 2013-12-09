@@ -1,23 +1,11 @@
 {
     "minimum-stability": "dev",
-    "repositories": [
-        {
-            "type": "package",
-            "package": {
-                "name": "michelf/php-markdown",
-                "version": "master",
-                "source": {
-                    "url": "git://github.com/michelf/php-markdown.git",
-                    "type": "git",
-                    "reference": "master"
-                }
-            }
-        }
-    ],
     "require": {
-        "pomm/pomm-service-provider": "dev-master",
-        "michelf/php-markdown": "dev-master",
+        "pomm/pomm-service-provider": "1.2.*@dev",
         "monolog/monolog": "1.6.*@dev",
-        "twig/twig": "dev-master"
+        "symfony/twig-bridge": "2.3.*",
+        "erusev/parsedown": "0.7.*",
+        "silex/silex": "1.0.*",
+        "twig/twig": "1.*"
     }
 }

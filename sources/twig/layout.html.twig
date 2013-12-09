@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PragmaFabrik</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="title" content="PragmaFabrik.com" />
+    <meta name="description" content="Site officiel de PragmaFabrik SARL" />
+    <meta name="keywords" content="PragmaFabrik, pomm, postgresql, slapom, php, silex, symfony" />
+    <meta name="language" content="{{ app.session.get('culture') }}" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- JAVASCRIPT -->
+{% block js %}{% endblock %}
+    <script src="/js/jquery.js"></script>
+    <script src="/js/bootstrap.js"></script>
+
+    {% if constant('ENV') == "prod" %}
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', '']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+    </script>
+     {% endif %}
+
+    <!-- Bootstrap -->
+    <link href="/css/bootstrap.css" rel="stylesheet" media="screen" />
+{% block css %}{% endblock %}
+  </head>
+  <body>
+    {{ render(app.url_generator.generate("main_navbar")) }}
+    {% if app.session.flashBag.has('info') %}
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            {{ app.session.getFlash('info') }}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+    {% block content %}{% endblock %}
+    <footer class="panel-footer" role="content-info">
+      <div class="container">
+        <div class="col-md-10 col-md-offset-1">
+          <div class="center-block">
+            <p>PragmaFabrik SARL au capital de 2 500€ enregistrée au RCS de Nantes - Saint Nazaire. Tous droits réservés &copy; 2013 PragmaFabrik SARL</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
