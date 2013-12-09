@@ -15,7 +15,7 @@ class BlogController implements ControllerProviderInterface
     {
         $this->app = $app;
         $controller_collection = $app['controllers_factory'];
-        $controller_collection->get('/', array($this, 'index'))->bind('blog_index');
+        $controller_collection->get('/', array($this, 'index'))->bind('blog_index')->value('lang', 'fr');
 
         return $controller_collection;
     }

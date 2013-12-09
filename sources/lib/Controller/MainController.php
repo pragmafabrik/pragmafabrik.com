@@ -15,11 +15,11 @@ class MainController implements ControllerProviderInterface
     {
         $this->app = $app;
         $controller_collection = $app['controllers_factory'];
-        $controller_collection->get('/', array($this, 'executeIndex'))->bind('main_index');
-        $controller_collection->get('/navbar', array($this, 'executeNavbar'))->bind('main_navbar');
-        $controller_collection->get('/who', array($this, 'executeWho'))->bind('main_who');
-        $controller_collection->get('/what', array($this, 'executeWhat'))->bind('main_what');
-        $controller_collection->get('/informations', array($this, 'executeInformations'))->bind('main_informations');
+        $controller_collection->get('/', array($this, 'executeIndex'))->bind('main_index')->value('lang', 'fr');
+        $controller_collection->get('/navbar', array($this, 'executeNavbar'))->bind('main_navbar')->value('lang', 'fr');
+        $controller_collection->get('/who', array($this, 'executeWho'))->bind('main_who')->value('lang', 'fr');
+        $controller_collection->get('/what', array($this, 'executeWhat'))->bind('main_what')->value('lang', 'fr');
+        $controller_collection->get('/informations', array($this, 'executeInformations'))->bind('main_informations')->value('lang', 'fr');
 
         return $controller_collection;
     }
