@@ -1,0 +1,35 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+      <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+          <h2>Donnez du sens à vos données</h2>
+          <p>Il n'est plus à démontrer que les données sont l'élément essentiel d'un système d'information. Sans elles les processus ne valent -- presque -- rien et il est toujours possible de construire des processus autour d'un jeu de données de valeur. Oui mais pour exploiter ces données, il est nécessaire de les structurer pour leur donner un sens. Une conception bien faite est une garantie de performances et de fonctionnalités.</p>
+            <blockquote class="pull-right"><div class="well"><p>Des données façonnées habilement permettent des processus simples donc un code plus robuste et plus performant.</p></div></blockquote>
+          <p>Ce constat est né en même temps que l'informatique et est remis au goût du jour par les socles techniques web des entreprises. Le choix des briques technologiques doit permettre une utilisation des données :</p>
+          <ul>
+            <li>simple</li>
+            <li>efficace</li>
+            <li>performante</li>
+          </ul>
+          <h2>Des outils pour les développeurs</h2>
+          <p>Les socles techniques actuels comprennent dans la majorité des cas un <abbr class="initialism" title="Object Relational Mapping">ORM</abbr> permettant d'abstraire les sources de données et d'aborder tous les développements de la même façon quelle que soit la base de données. Ce choix systématique présente un ensemble de désavantages qui peuvent s'avérer à la longue extrêmement coûteux et dont les problèmes de performances ne sont que la partie visible :</p>
+          <ul>
+            <li>Les développeurs ne sont plus clients des fonctionnalités du moteur de base de données mais de l'<abbr class="initialism" title="Object Relational Mapping">ORM</abbr>, or celui-ci ne présente que le plus petit commun dénominateur des fonctionnalités des moteurs de base de données.</li>
+            <li>Devant la difficulté d'exprimer des requêtes complexes, les développeurs finissent par utiliser le langage natif du moteur sous jacent et paient le prix d'une couche d'abstraction pour un code dédié.</li>
+            <li>Les développeurs utilisent essentiellement les <abbr class="initialism" title="Object Relational Mapping">ORM</abbr> pour hydrater des objets métier avec les données de la base.</li>
+            <li>Les problèmes de performances sont liés au fait que les développeurs n'ont plus la maîtrise des requêtes envoyées, il est donc difficile de créer les index appropriés aux recherches.</li>
+            <li>Un <abbr class="initialism" title="Object Relational Mapping">ORM</abbr> est plus complexe à utiliser qu'un moteur de base de données.</li>
+            <li>Un <abbr class="initialism" title="Object Relational Mapping">ORM</abbr> fait rentrer la logique orientée objet dans une base de données relationnelle, ce qui par essence crée des problèmes déjà longuement débattus par les experts. Il faut donc s'accommoder d'un compromis coûteux.</li>
+          </ul>
+          <p>Pour pallier à ces défauts, PragmaFabrik propose son expertise autour d'un gestionnaire de modèle orienté objet : Pomm. Pomm, contrairement aux <abbr class="initialism" title="Object Relational Mapping">ORM</abbr>, fait rentrer la logique relationnelle dans une approche orientée objet et renonce à utiliser une couche d'abstraction pour tirer parti des fonctionnalités du moteur de Postgresql :</p>
+          <ul>
+            <li>Un ensemble de types riche (clé-valeur, tableaux, json, xml, etc. et les opérateurs qui vont avec)</li>
+            <li>Des possibilités de structuration orientés objet (types composites)</li>
+            <li>La possibilité d'utiliser directement du SQL (norme SQL-2008) pour extraire et façonner les données</li>
+            <li>Un orchestrateur d'évènements</li>
+            <li>Des types d'index et de transaction inédits et dédiés aux hautes performances.</li>
+          </ul>
+        </div>
+      </div>
+{% endblock %}

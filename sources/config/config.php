@@ -10,3 +10,13 @@ $app['config.pomm.dsn'] = array(
 );
 
 // put your configuration here
+
+$app['config.swiftmailer'] = array(
+    'host' => 'smtp.gmail.com',
+    'port' => 465,
+    'auth_mode' => 'login',
+    'encryption' => 'ssl',
+    'username' =>  'gregoire.hubert.pro@gmail.com',
+    'password' =>  'Quimperle29',
+    'destination' => 'gregoire.hubert@pragmafabrik.com'
+);

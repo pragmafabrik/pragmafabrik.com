@@ -15,38 +15,79 @@ class MainController implements ControllerProviderInterface
     {
         $this->app = $app;
         $controller_collection = $app['controllers_factory'];
-        $controller_collection->get('/', array($this, 'executeIndex'))->bind('main_index')->value('lang', 'fr');
-        $controller_collection->get('/navbar', array($this, 'executeNavbar'))->bind('main_navbar')->value('lang', 'fr');
-        $controller_collection->get('/who', array($this, 'executeWho'))->bind('main_who')->value('lang', 'fr');
-        $controller_collection->get('/what', array($this, 'executeWhat'))->bind('main_what')->value('lang', 'fr');
-        $controller_collection->get('/informations', array($this, 'executeInformations'))->bind('main_informations')->value('lang', 'fr');
+        $controller_collection->get('/', [ $this, 'executeIndex' ])->bind('main_index')->value('lang', 'fr');
+        $controller_collection->get('/navbar', [ $this, 'executeNavbar' ])->bind('main_navbar')->value('lang', 'fr');
+        $controller_collection->get('/who', [ $this, 'executeWho' ])->bind('main_who')->value('lang', 'fr');
+        $controller_collection->get('/what', [ $this, 'executeWhat' ])->bind('main_what')->value('lang', 'fr');
+        $controller_collection->get('/informations', [ $this, 'executeInformations' ])->bind('main_informations')->value('lang', 'fr');
+        $controller_collection->get('/contact', [ $this, 'executeContact' ])->bind('main_contact')->value('lang', 'fr');
+        $controller_collection->post('/contact/new', [ $this, 'executePostContact' ])->bind('main_post_contact')->value('lang', 'fr');
 
         return $controller_collection;
     }
 
-    public function executeIndex()
+    public function executeIndex($lang)
     {
-        return $this->app["twig"]->render(sprintf("index_%s.html.twig", $this->getLang()));
+        return $this->app["twig"]->render(sprintf("index_%s.html.twig", $lang));
     }
 
-    public function executeNavbar()
+    public function executeNavbar($lang)
     {
-        return $this->app["twig"]->render(sprintf("_navbar_%s.html.twig", $this->getLang()));
+        return $this->app["twig"]->render(sprintf("_navbar_%s.html.twig", $lang));
     }
 
-    protected function getLang()
+    public function executeWhat($lang)
     {
-        if ($this->app['request']->query->has('lang'))
+        return $this->app["twig"]->render(sprintf("what_%s.html.twig", $lang));
+    }
+
+    public function executeWho($lang)
+    {
+        return $this->app["twig"]->render(sprintf("who_%s.html.twig", $lang));
+    }
+
+    public function executeInformations($lang)
+    {
+        return $this->app['twig']->render(sprintf("info_%s.html.twig", $lang));
+    }
+
+    public function executeContact($lang)
+    {
+        $form = $this->app['form.factory']
+            ->createBuilder(new \Form\Contact())
+            ->getForm()
+            ->bind($this->app['request']);
+
+        return $this->app['twig']->render(sprintf("_contact_%s.html.twig", $lang), [ 'form' => $form->createView() ]);
+    }
+
+    public function executePostContact($lang)
+    {
+        $form = $this->app['form.factory']
+            ->createBuilder(new \Form\Contact())
+            ->getForm()
+            ->bind($this->app['request']);
+
+        if ($form->isValid())
         {
-            $lang = $this->app['request']->query->get('lang');
-            $lang = in_array($lang, array('en')) ? $lang : 'fr';
-            $this->app['session']->set('culture', $lang);
-        }
-        elseif (!$this->app['session']->has('culture'))
-        {
-            $this->app['session']->set('culture', 'fr');
+            $values = $form->getData();
+            $this->app['mailer']->send(
+                \Swift_Message::newInstance()
+                    ->setSubject(sprintf('[pragmafabrik.com] Demande de contact (%s).', $values['name']))
+                    ->setFrom(array($values['email'] => $values['name']))
+                    ->setReplyTo(array($values['email'] => $values['name']))
+                    ->setTo(array($this->app['config.swiftmailer']['destination']))
+                    ->setBody($values['message'])
+                );
+            $flash_message = [ 'fr' =>  'Votre demande de contact a été envoyée.', 'en' => 'Your contact request has been sent.' ];
+            $this->app['session']->getFlashBag()->add('success', $flash_message[$this->app['request']->get('lang', 'fr')]);
+
+            return $this->app->redirect($this->app['url_generator']->generate('main_index'));
         }
 
-        return $this->app['session']->get('culture');
+        $flash_message = [ 'fr' =>  'Votre demande de contact n\'a pu aboutir.', 'en' => 'Your contact query could not be fulfilled.' ];
+        $this->app['session']->getFlashBag()->add('error', $flash_message[$this->app['request']->get('lang', 'fr')]);
+
+        return $this->executeIndex($lang);
     }
 }

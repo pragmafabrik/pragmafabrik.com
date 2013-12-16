@@ -4,9 +4,13 @@
     <title>PragmaFabrik</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="title" content="PragmaFabrik.com" />
+{% if app.request.get('lang') == 'fr' %}
     <meta name="description" content="Site officiel de PragmaFabrik SARL" />
-    <meta name="keywords" content="PragmaFabrik, pomm, postgresql, slapom, php, silex, symfony" />
-    <meta name="language" content="{{ app.session.get('culture') }}" />
+{% else %}
+    <meta name="description" content="Official site of PragmaFabrik SARL" />
+{% endif %}
+    <meta name="keywords" content="PragmaFabrik, pomm, postgresql, slapom, php" />
+    <meta name="language" content="{{ app.request.get('lang') }}" />
     <meta name="robots" content="index, follow" />
 
     <!-- JAVASCRIPT -->
@@ -31,29 +35,33 @@
 
     <!-- Bootstrap -->
     <link href="/css/bootstrap.css" rel="stylesheet" media="screen" />
+    <link href="/css/custom.css" rel="stylesheet" media="screen" />
 {% block css %}{% endblock %}
   </head>
   <body>
-    {{ render(app.url_generator.generate("main_navbar")) }}
-    {% if app.session.flashBag.has('info') %}
-    <div class="container">
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            {{ app.session.getFlash('info') }}
+{{ render(app.url_generator.generate("main_navbar", { "lang": app.request.get('lang') })) }}
+    <div id="wrap">
+      <div class="container">
+{% include "error_bar.html.twig" with { "app": app } only %}
+        <div class="row">
+          <div class="col-md-10 col-md-offset-1">
+            <div class="page-header">
+              <h1>PragmaFabrik <small>L'expertise PHP &amp; Postgresql</small></h1>
+            </div>
+          </div>
         </div>
+{% block content %}{% endblock %}
       </div>
     </div>
-    {% endif %}
-    {% block content %}{% endblock %}
-    <footer class="panel-footer" role="content-info">
+    <div id="footer" class="panel-footer">
       <div class="container">
-        <div class="col-md-10 col-md-offset-1">
-          <div class="center-block">
-            <p>PragmaFabrik SARL au capital de 2 500€ enregistrée au RCS de Nantes - Saint Nazaire. Tous droits réservés &copy; 2013 PragmaFabrik SARL</p>
+        <div class="col-md-4 col-md-offset-4">
+          <div class="center-block page-footer">
+            <p>Tous droits réservés &copy; 2013 PragmaFabrik SARL.</p>
           </div>
         </div>
       </div>
-    </footer>
+    </div>
+{{ render(app.url_generator.generate("main_contact", { "lang": app.request.get('lang') })) }}
   </body>
 </html>
-

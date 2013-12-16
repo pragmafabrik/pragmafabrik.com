@@ -7,7 +7,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="{{ app['url_generator'].generate('main_index') }}">PragmaFabrik</a>
+    <a class="navbar-brand" href="{{ app['url_generator'].generate('main_index', { "lang": app.request.get('lang') }) }}">PragmaFabrik</a>
   </div>
 
   <!-- Collect the nav links, forms, and other content for toggling -->
@@ -22,7 +22,7 @@
         </ul>
       </li>
       <li><a href="{{ app.url_generator.generate('blog_index') }}">News</a></li>
-      <li><a href="#">Nous contacter</a></li>
+      <li><a href="#" data-toggle="modal" data-target="#contactModal">Nous contacter</a></li>
       <li class="dropdown">
         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fabrik <b class="caret"></b></a>
         <ul class="dropdown-menu">
