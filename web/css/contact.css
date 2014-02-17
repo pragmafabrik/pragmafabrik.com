@@ -1,0 +1,39 @@
+/*
+	CONTACT
+*/
+
+.fields-required {
+	color: #a9b6bd;
+	font-style: italic;
+	font-size: 14px;
+}
+.required {
+	font-weight: bold;
+	color: #42b3e0;
+}
+.contact-way {
+	font-size: 24px;
+}
+.tel {
+	color: #42b3e0;
+}
+.contact-address {
+	font-size: 18px;
+	color: #444;
+}
+.lnk-gmaps-txt {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 12px;
+	font-weight: bold;
+	color: #a9b6bd;
+	text-decoration: underline;
+}
+.lnk-gmaps-ico {
+	display: inline-block;
+	margin-right: 5px;
+	vertical-align: middle;
+	background: url(../img/sprites.png) no-repeat -3px -32px;
+	width: 12px;
+	height: 16px;
+}

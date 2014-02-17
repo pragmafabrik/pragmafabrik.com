@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
   <head>
-    <title>PragmaFabrik</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="title" content="PragmaFabrik.com" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 {% if app.request.get('lang') == 'fr' %}
     <meta name="description" content="Site officiel de PragmaFabrik SARL" />
 {% else %}
@@ -12,13 +12,29 @@
     <meta name="keywords" content="PragmaFabrik, pomm, postgresql, slapom, php" />
     <meta name="language" content="{{ app.request.get('lang') }}" />
     <meta name="robots" content="index, follow" />
+    <title>{% block title %}{% endblock %}</title>
 
-    <!-- JAVASCRIPT -->
-{% block js %}{% endblock %}
-    <script src="/js/jquery.js"></script>
-    <script src="/js/bootstrap.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/global.css">
+{% block css %}{% endblock %}
 
-    {% if constant('ENV') == "prod" %}
+    <!-- Google Web Fonts -->
+    <link href='http://fonts.googleapis.com/css?family=Lato:400,700,900,300italic,400italic|Dosis:600,700' rel='stylesheet' type='text/css'>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="/js/jquery-2.1.0.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="/bootstrap/js/bootstrap.min.js"></script>
+{% block javascript %}{% endblock %}
+{% if constant('ENV') == "prod" %}
     <script type="text/javascript">
       var _gaq = _gaq || [];
       _gaq.push(['_setAccount', '']);
@@ -31,37 +47,38 @@
       })();
 
     </script>
-     {% endif %}
-
-    <!-- Bootstrap -->
-    <link href="/css/bootstrap.css" rel="stylesheet" media="screen" />
-    <link href="/css/custom.css" rel="stylesheet" media="screen" />
-{% block css %}{% endblock %}
+{% endif %}
   </head>
   <body>
+    <header class="header">
+      <div class="container">
 {{ render(app.url_generator.generate("main_navbar", { "lang": app.request.get('lang') })) }}
-    <div id="wrap">
-      <div class="container">
-{% include "error_bar.html.twig" with { "app": app } only %}
-        <div class="row">
-          <div class="col-md-10 col-md-offset-1">
-            <div class="page-header">
-              <h1>PragmaFabrik <small>L'expertise PHP &amp; Postgresql</small></h1>
-            </div>
-          </div>
-        </div>
+      </div>
+    </header>
 {% block content %}{% endblock %}
-      </div>
-    </div>
-    <div id="footer" class="panel-footer">
+    <footer class="footer section">
       <div class="container">
-        <div class="col-md-4 col-md-offset-4">
-          <div class="center-block page-footer">
-            <p>Tous droits réservés &copy; 2013 PragmaFabrik SARL.</p>
+        <div class="row">
+          <div class="col-sm-6 col-md-5 col-md-offset-1">
+            <h3 class="footer-title"><span>À propos</span></h3>
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.<br/><a href="#">En savoir plus ›</a></p>
           </div>
-        </div>
+          <div class="col-sm-6 col-md-5">
+            <h3 class="footer-title"><span>Suivez-nous</span></h3>
+            <ul class="nav-social">
+              <li><a href="#"><span class="ico-social ico-github"></span><span>GitHub</span></a></li>
+              <li><a href="#"><span class="ico-social ico-twitter"></span><span>Twitter</span></a></li>
+            </ul>
+          </div>
+        </div>  
       </div>
+    </footer>
+
+    <div class="bottom">
+      <ul class="nav-btm">
+        <li><a href="#">Mentions légales</a></li>
+        <li><a href="#">CGV</a></li>
+      </ul>
     </div>
-{{ render(app.url_generator.generate("main_contact", { "lang": app.request.get('lang') })) }}
   </body>
 </html>

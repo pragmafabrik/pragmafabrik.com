@@ -1,0 +1,59 @@
+/*
+	HOME
+*/
+.home-intro-title {
+	margin-bottom: 10px;
+	color: #000;
+	font-size: 54px;
+	line-height: 1em;
+	font-weight: 700;
+}
+.home-intro-title > span {
+	font-family: 'Trebuchet MS';
+	font-style: italic;
+	color: #42b3e0;
+}
+.home-intro-subtitle {
+	margin-bottom: 40px;
+	font-family: 'Dosis', sans-serif;
+	font-size: 36px;
+	line-height: 1em;
+	color: #42b3e0;
+}
+.home-intro-txt {
+	margin-bottom: 45px;
+	font-size: 20px;
+}
+.home-pomm {
+	background: #f39314;
+	color: #fff;
+}
+.home-pomm-title {
+	margin-bottom: 30px;
+	font-size: 36px;
+	font-weight: 600;
+	color: #fff;
+}
+.home-pomm-quote {
+	position: relative;
+	padding-left: 80px;
+	font-weight: 300;
+	font-style: italic;
+	font-size: 32px;
+	line-height: 40px;
+	color: #311b00;
+}
+.home-pomm-quote:before {
+	content: "“";
+	position: absolute;
+	top: -10px;
+	left: 0;
+	font-family: Arial, sans-serif;
+	font-style: normal;
+	color: #fff;
+	font-size: 150px;
+	line-height: 1em;
+}
+.home-pomm-quote strong {
+	font-weight: 400;
+}

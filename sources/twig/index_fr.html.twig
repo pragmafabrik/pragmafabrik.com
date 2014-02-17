@@ -1,23 +1,46 @@
 {% extends "layout.html.twig" %}
 
-{% block content %}
-      <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-          <p>Forte de plus de dix ans d'expérience sur le moteur relationnel de base de données libre Postgresql et du langage de programmation web PHP, <strong>PragmaFabrik</strong> vous accompagne en amont de vos projets pour vous permettre de tirer parti de la puissance des ces outils au service des applications à forte composante métier.</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-        <h2>Ingénierie de projets</h2>
-        <p>En amont de vos développements, l'étude et la mise au point des structures de données et des entrées - sorties est un critère fondamental de la réussite de votre projet sur le long terme. <strong>PragmaFabrik</strong> vous accompagne et vous fait profiter de son savoir-faire en ce domaine.</p>
-        </div>
-        <div class="col-md-4">
-        <h2>Transfert de compétences</h2>
-        <p>Rendez vos équipes de développeurs efficientes sur les technologies Postgresql en PHP grâce à Pomm.</p><p>Depuis les types et structures de données complexes jusqu'à la création et l'utilisation des index, les formations <strong>PragmaFabrik</strong> sont un véritable booster de productivité dans leur domaine.</p>
-        </div>
-        <div class="col-md-4">
-        <h2>Outils pour les développeurs</h2>
-        <p>Sur un créneau novateur, <strong>PragmaFabrik</strong> crée des outils selon ses besoins et les redistribue en open-source. Principalement dédiés aux sources de données, des outils tels que Pomm (Postgresql) ou SlapOM (LDAP) sont maintenus par <strong>PragmaFabrik</strong> et librement disponibles.</p>
-        </div>
-      </div>
+{% block css %}
+    <link rel="stylesheet" href="/css/home.css">
 {% endblock %}
+
+{% block content %}
+    <section class="home-intro section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-1 text-center">
+            <h2 class="home-intro-title">Expert PostgreSQL <span>&</span> PHP</h2>
+            <p class="home-intro-subtitle">Culture DevOps</p>
+            <p class="home-intro-txt">Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet ttrutrum faucibus dolor auctor. Aenean lacinia bibendum nulla sed.</p>
+            <p>
+              <a href="#" class="btn btn-orange">Notre offre de conseil</a>
+              <a href="#" class="btn btn-orange">Découvrez nos formations</a>
+            </p>
+          </div>
+          <div class="col-md-3">
+            <img src="/img/illus-postgresql-php.jpg" alt="" class="center-block" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-pomm section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="home-pomm-title">Créateur de Pomm</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Aenean lacinia bibendum nulla.</p>
+            <a href="#" class="btn btn-white">Découvrez Pomm</a>
+          </div>
+          <div class="col-sm-6">
+            <p class="home-pomm-quote">Pomm propose une <strong>nouvelle approche</strong> de la modélisation de données&nbsp;!</p>
+            <img src="/img/logo-pomm.png" class="pull-right" alt="Pomm" />
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %} 
