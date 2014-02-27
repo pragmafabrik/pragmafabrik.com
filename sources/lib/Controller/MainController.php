@@ -17,11 +17,7 @@ class MainController implements ControllerProviderInterface
         $controller_collection = $app['controllers_factory'];
         $controller_collection->get('/', [ $this, 'executeIndex' ])->bind('main_index')->value('lang', 'fr');
         $controller_collection->get('/navbar', [ $this, 'executeNavbar' ])->bind('main_navbar')->value('lang', 'fr');
-        $controller_collection->get('/who', [ $this, 'executeWho' ])->bind('main_who')->value('lang', 'fr');
-        $controller_collection->get('/what', [ $this, 'executeWhat' ])->bind('main_what')->value('lang', 'fr');
-        $controller_collection->get('/informations', [ $this, 'executeInformations' ])->bind('main_informations')->value('lang', 'fr');
-        $controller_collection->get('/contact', [ $this, 'executeContact' ])->bind('main_contact')->value('lang', 'fr');
-        $controller_collection->post('/contact/new', [ $this, 'executePostContact' ])->bind('main_post_contact')->value('lang', 'fr');
+        $controller_collection->get('/fabrik/pomm', [ $this, 'executeFabrikPomm' ])->bind('main_fabrik_pomm')->value('lang', 'fr');
 
         return $controller_collection;
     }
@@ -36,19 +32,9 @@ class MainController implements ControllerProviderInterface
         return $this->app["twig"]->render(sprintf("_navbar_%s.html.twig", $lang));
     }
 
-    public function executeWhat($lang)
+    public function executeFabrikPomm($lang)
     {
-        return $this->app["twig"]->render(sprintf("what_%s.html.twig", $lang));
-    }
-
-    public function executeWho($lang)
-    {
-        return $this->app["twig"]->render(sprintf("who_%s.html.twig", $lang));
-    }
-
-    public function executeInformations($lang)
-    {
-        return $this->app['twig']->render(sprintf("info_%s.html.twig", $lang));
+        return $this->app["twig"]->render(sprintf("fabrik_pomm_%s.html.twig", $lang));
     }
 
     public function executeContact($lang)

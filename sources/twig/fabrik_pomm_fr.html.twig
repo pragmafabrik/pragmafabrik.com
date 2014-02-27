@@ -1,0 +1,46 @@
+{% extends "layout.html.twig" %}
+
+{% block css %}
+    <link rel="stylesheet" href="/css/home.css">
+{% endblock %}
+
+{% block content %}
+<section class="section page">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <ol class="breadcrumb">
+              <li><a href="{{ app.url_generator.generate("main_index") }}">Accueil</a></li>
+              <li>Fabrik</li>
+              <li class="active">Pomm</li>
+            </ol>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-9">
+            <h1>Pomm</h1>
+            <p class="lead">Pomm est un Framework open-source de la couche modèle dédié à Postgresql pour les développements en PHP. Il propose une approche différente des ORM classiques et permet de tirer parti des fonctionnalités et des performances du moteur de base de données.</p>
+            <div class="row">
+              <div class="col-md-4">
+                <h2>Simple</h2>
+                <p>Même si l'approche est différente, Pomm s'utilise de façon similaire aux ORM classiques (Doctrine, Propel, etc.). Un introspecteur de base de données permet de générer les classes à partir de votre base de données existante et d'être efficace au plus vite. <br />Plus d'information sur <a href="http://www.pomm-project.org">le site open-source de Pomm</a>.</p>
+              </div>
+              <div class="col-md-4">
+                <h2>Puissant</h2>
+                <p>Pomm intègre une approche orientée objet à la logique ensembliste de la base de données. De fait, les développeurs peuvent utiliser directement le SQL et les fonctionnalités offertes par le moteur Postgresql. Pomm propose en outre une couche de conversion de types vers PHP de haut niveau. <br />Plus d'information sur <a href="http://www.pomm-project.org">le site open-source de Pomm</a>.</p>
+              </div>
+              <div class="col-md-4">
+                <h2>Rapide</h2>
+                <p>Affranchi de toute couche d'abstraction, Pomm propose un accès direct à la base de donnée et garantit ainsi des performances inégalables par les ORM classiques. De plus, l'utilisation des mécanismes de la base permet de rester au plus près de son niveau de performances. <br />Plus d'information sur <a href="http://www.pomm-project.org">le site open-source de Pomm</a>.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <ul class="nav-secondary list-group">
+              <li class="list-group-item active">Pomm</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}
