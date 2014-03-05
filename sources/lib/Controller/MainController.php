@@ -18,23 +18,29 @@ class MainController implements ControllerProviderInterface
         $controller_collection->get('/', [ $this, 'executeIndex' ])->bind('main_index')->value('lang', 'fr');
         $controller_collection->get('/navbar', [ $this, 'executeNavbar' ])->bind('main_navbar')->value('lang', 'fr');
         $controller_collection->get('/fabrik/pomm', [ $this, 'executeFabrikPomm' ])->bind('main_fabrik_pomm')->value('lang', 'fr');
+        $controller_collection->get('/about', [ $this, 'executeAbout' ])->bind('main_about')->value('lang', 'fr');
 
         return $controller_collection;
     }
 
     public function executeIndex($lang)
     {
-        return $this->app["twig"]->render(sprintf("index_%s.html.twig", $lang));
+        return $this->app["twig"]->render(sprintf("%s/index.html.twig", $lang));
     }
 
     public function executeNavbar($lang)
     {
-        return $this->app["twig"]->render(sprintf("_navbar_%s.html.twig", $lang));
+        return $this->app["twig"]->render(sprintf("%s/_navbar.html.twig", $lang));
     }
 
     public function executeFabrikPomm($lang)
     {
-        return $this->app["twig"]->render(sprintf("fabrik_pomm_%s.html.twig", $lang));
+        return $this->app["twig"]->render(sprintf("%s/fabrik_pomm.html.twig", $lang));
+    }
+
+    public function executeAbout($lang)
+    {
+        return $this->app['twig']->render(sprintf("%s/about.html.twig", $lang));
     }
 
     public function executeContact($lang)
@@ -44,7 +50,7 @@ class MainController implements ControllerProviderInterface
             ->getForm()
             ->bind($this->app['request']);
 
-        return $this->app['twig']->render(sprintf("_contact_%s.html.twig", $lang), [ 'form' => $form->createView() ]);
+        return $this->app['twig']->render(sprintf("%s/contact.html.twig", $lang), [ 'form' => $form->createView() ]);
     }
 
     public function executePostContact($lang)
@@ -74,6 +80,6 @@ class MainController implements ControllerProviderInterface
         $flash_message = [ 'fr' =>  'Votre demande de contact n\'a pu aboutir.', 'en' => 'Your contact query could not be fulfilled.' ];
         $this->app['session']->getFlashBag()->add('error', $flash_message[$this->app['request']->get('lang', 'fr')]);
 
-        return $this->executeIndex($lang);
+        return $this->executeContact($lang);
     }
 }
