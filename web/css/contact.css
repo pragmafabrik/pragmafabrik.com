@@ -1,7 +1,11 @@
 /*
 	CONTACT
 */
-
+@media (max-width: 768px) {
+	.form-contact {
+		margin-bottom: 50px;
+	}
+}
 .fields-required {
 	color: #a9b6bd;
 	font-style: italic;
