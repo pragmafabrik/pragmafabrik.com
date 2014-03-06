@@ -1,0 +1,83 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+    <section class="section page">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <ol class="breadcrumb">
+              <li><a href="#">Accueil</a></li>
+              <li>Nos offres</li>
+              <li class="active">Conseil</li>
+            </ol>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-9">
+            <h1>Conseil &amp; audit</h1>
+            <p class="lead">Analyser une situation, produire des métriques, proposer et évaluer des solutions; que ce soit pour des compétences ou des performances, c'est avant tout un travail en osmose avec vos équipes.</p>
+            <h2>Comprendre</h2>
+            <p>Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla. Nullam quis risus eget urna texte en gras mollis ornare vel eu leo. Cras justo odio, <strong>texte en gras</strong>, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla. Donec id elit non mi porta gravida at eget metus.</p>
+            <ul>
+              <li>Exemple de liste</li>
+              <li>Exemple de liste</li>
+              <li>Exemple de liste</li>
+            </ul>
+            <h2>Analyser</h2>
+            <p>Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla. Nullam quis risus eget urna texte en gras mollis ornare vel eu leo. Cras justo odio, <strong>texte en gras</strong>, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla. Donec id elit non mi porta gravida at eget metus.</p>
+            <blockquote>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+            </blockquote>
+            <h2>Transmettre</h2>
+            <p>Etiam porta sem malesuada magna mollis euismod. <a href="#">Ceci est un lien</a>. Donec ullamcorper nulla non metus auctor fringilla. Nullam quis risus eget urna texte en gras mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla. Donec id elit non mi porta gravida at eget metus.</p>
+            <p><a href="" class="btn">Bouton d'action</a><a href="" class="btn btn-sm">Petit bouton</a><a href="" class="btn btn-xs">Plus petit</a></p>
+            <h3>Livrable</h3>
+            <p>Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla. Nullam quis risus eget urna texte en gras mollis ornare vel eu leo.</p>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>First Name</th>
+                  <th>Last Name</th>
+                  <th>Username</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1</td>
+                  <td>Mark</td>
+                  <td>Otto</td>
+                  <td>@mdo</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>Jacob</td>
+                  <td>Thornton</td>
+                  <td>@fat</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>Larry</td>
+                  <td>the Bird</td>
+                  <td>@twitter</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla. Nullam quis risus eget urna texte en gras mollis ornare vel eu leo.</p>
+    
+            <ul class="pagination">
+              <li><a href="#">&laquo;</a></li>
+              <li><a href="#">1</a></li>
+              <li><a href="#">2</a></li>
+              <li><a href="#">3</a></li>
+              <li><a href="#">4</a></li>
+              <li><a href="#">5</a></li>
+              <li><a href="#">&raquo;</a></li>
+            </ul>
+          </div>
+{% include "fr/_service_panel.html.twig" with { "active": "audit" } %}
+        </div>
+      </div>
+    </section>
+{% endblock %}

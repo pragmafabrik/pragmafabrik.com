@@ -19,6 +19,10 @@ class MainController implements ControllerProviderInterface
         $controller_collection->get('/navbar', [ $this, 'executeNavbar' ])->bind('main_navbar')->value('lang', 'fr');
         $controller_collection->get('/fabrik/pomm', [ $this, 'executeFabrikPomm' ])->bind('main_fabrik_pomm')->value('lang', 'fr');
         $controller_collection->get('/about', [ $this, 'executeAbout' ])->bind('main_about')->value('lang', 'fr');
+        $controller_collection->get('/service/audit', [ $this, 'executeServiceAudit' ])->bind('main_service_audit')->value('lang', 'fr');
+        $controller_collection->get('/service/backing', [ $this, 'executeServiceBacking' ])->bind('main_service_backing')->value('lang', 'fr');
+        $controller_collection->get('/service/training', [ $this, 'executeServiceTraining' ])->bind('main_service_training')->value('lang', 'fr');
+        $controller_collection->get('/service/support', [ $this, 'executeServiceSupport' ])->bind('main_service_support')->value('lang', 'fr');
 
         return $controller_collection;
     }
@@ -36,6 +40,26 @@ class MainController implements ControllerProviderInterface
     public function executeFabrikPomm($lang)
     {
         return $this->app["twig"]->render(sprintf("%s/fabrik_pomm.html.twig", $lang));
+    }
+
+    public function executeServiceAudit($lang)
+    {
+        return $this->app['twig']->render(sprintf("%s/service_audit.html.twig", $lang));
+    }
+
+    public function executeServiceBacking($lang)
+    {
+        return $this->app['twig']->render(sprintf("%s/service_backing.html.twig", $lang));
+    }
+
+    public function executeServiceTraining($lang)
+    {
+        return $this->app['twig']->render(sprintf("%s/service_training.html.twig", $lang));
+    }
+
+    public function executeServiceSupport($lang)
+    {
+        return $this->app['twig']->render(sprintf("%s/service_support.html.twig", $lang));
     }
 
     public function executeAbout($lang)

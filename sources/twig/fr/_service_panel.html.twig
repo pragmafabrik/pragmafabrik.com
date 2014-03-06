@@ -1,0 +1,26 @@
+          <div class="col-sm-3">
+            <ul class="nav-secondary list-group">
+              <li class="list-group-item">Nos offres</li>
+{% if active == 'audit' %}
+              <li class="list-group-item active">Conseil &amp; audit</li>
+{% else %}
+              <li class="list-group-item"><a href="{{ app.url_generator.generate('main_service_audit') }}">Conseil &amp; audit</a></li>
+{% endif %}
+{% if active == 'backing' %}
+              <li class="list-group-item active">Accompagnement</li>
+{% else %}
+              <li class="list-group-item"><a href="{{ app.url_generator.generate('main_service_backing') }}">Accompagnement</a></li>
+{% endif %}
+{% if active == 'training' %}
+              <li class="list-group-item active">Formation</li>
+{% else %}
+              <li class="list-group-item"><a href="{{ app.url_generator.generate('main_service_training') }}">Formation</a></li>
+{% endif %}
+{% if active == 'support' %}
+              <li class="list-group-item active">Support</li>
+{% else %}
+              <li class="list-group-item"><a href="{{ app.url_generator.generate('main_service_support') }}">Support</a></li>
+{% endif %}
+            </ul>
+          </div>
+
