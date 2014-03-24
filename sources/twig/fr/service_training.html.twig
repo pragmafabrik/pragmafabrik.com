@@ -5,76 +5,63 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <ol class="breadcrumb">
-              <li><a href="#">Accueil</a></li>
-              <li>Nos offres</li>
-              <li class="active">Accompagnement</li>
-            </ol>
+{% include "fr/_breadcrumb.html.twig" with { "breadcrumb": { "Accueil": "main_index", "Nos offres": "", "Formation": "" } } %}
           </div>
         </div>
         <div class="row">
           <div class="col-sm-9">
-            <h1>Accompagnement technique</h1>
-            <p class="lead">Épauler une équipe, faire émerger des solutions collectives, l'intervention d'un consultant technique apporte par sa culture externe, une sécurité et une richesse qui perdure bien après la fin de sa mission.</p>
-            <h2>Intégrer</h2>
-            <p>C'est avant tout le goût du travail en commun qui anime le consultant lors d'une prestation d'accompagnement technique. Il faut intégrer les méthodes de travail et les technologies utilisées pour produire un service métier. Mais aussi comprendre la logique de l'organisation de l'équipe et les talents de chacun. Agilifier les process, organiser des séances de brain-storming : c'est avant tout un travail de communication et de partage technique.</p>
-            <ul>
-              <li>Exemple de liste</li>
-              <li>Exemple de liste</li>
-              <li>Exemple de liste</li>
-            </ul>
-            <h2>Communiquer</h2>
-            <p>Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla. Nullam quis risus eget urna texte en gras mollis ornare vel eu leo. Cras justo odio, <strong>texte en gras</strong>, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla. Donec id elit non mi porta gravida at eget metus.</p>
-            <blockquote>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
-            </blockquote>
-            <h2>Transmettre</h2>
-            <p>Etiam porta sem malesuada magna mollis euismod. <a href="#">Ceci est un lien</a>. Donec ullamcorper nulla non metus auctor fringilla. Nullam quis risus eget urna texte en gras mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla. Donec id elit non mi porta gravida at eget metus.</p>
-            <p><a href="" class="btn">Bouton d'action</a><a href="" class="btn btn-sm">Petit bouton</a><a href="" class="btn btn-xs">Plus petit</a></p>
-            <h3>titre 3</h3>
-            <p>Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla. Nullam quis risus eget urna texte en gras mollis ornare vel eu leo.</p>
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Username</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-              </tbody>
-            </table>
-            <p>Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla. Nullam quis risus eget urna texte en gras mollis ornare vel eu leo.</p>
-    
-            <ul class="pagination">
-              <li><a href="#">&laquo;</a></li>
-              <li><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
-              <li><a href="#">&raquo;</a></li>
-            </ul>
+            <h1>Nos formations</h1>
+            <p class="lead">Spécialiste Postgresql &amp; PHP, PragmaFabrik vous convie au partage de son savoir-faire.</p>
+            <h2>Pomm</h2>
+            <p>Un exercice pratique nous emmènera exploter, tout au long de cette formation, la richesse des types de données, que nous utiliserons pour façonner, à l'aide de requêtes de plus en plus complexes, les ensembles attendus par les objets PHP.</p>
+            <p>L'utilisation avancée de Postgresql au travers l'OMM Pomm (2 jours, 2 400€).</p>
+            <dl>
+              <dt>Apprivoiser Postgresql</dt>
+              <dd>Se connecter en ligne de commandes</dd>
+              <dd>PSQL : guide de survie</dd>
+              <dd>Configurer PSQL</dd>
+              <dt>Structures et bases</dt>
+              <dd>Schémas et <code>search_path</code></dd>
+              <dd>Tables et séquences</dd>
+              <dd>Extension <code>uuid</code></dd>
+              <dt>Premiers pas avec Pomm</dt>
+              <dd>Introspection de la base de données</dd>
+              <dd>Structure des entités</dd>
+              <dd>Premières requêtes</dd>
+              <dt>Couche modèle</dt>
+              <dd>Organiser ses requêtes</dd>
+              <dd>Conditions dynamiques</dd>
+              <dd>Opérateurs de projection</dd>
+              <dt>Collections et entités</dt>
+              <dd>Itérateurs de résultats</dd>
+              <dd>Utiliser les entités dans les vues</dd>
+              <dd>Augmenter les entités</dd>
+              <dt>Structures complexes</dt>
+              <dd>Tableaux</dd>
+              <dd>Types géométriques/<dd>
+              <dd>Types temporels</dd>
+              <dd>JSON, HStore &amps; convertisseurs</dd>
+              <dt>Modifications</dt>
+              <dd>Création d'entités</dd>
+              <dd>Modification</dd>
+              <dd>Suppression</dd>
+              <dt>Requêtes SQL</dt>
+              <dd>Construction des requêtes</dd>
+              <dd>Champs virtuels</dd>
+              <dd>Jointures</dd>
+              <dt>Modificateurs ensemblistes</dt>
+              <dd>Valeurs et générateurs</dd>
+              <dd>Agrégats</dd>
+              <dd>Fonctions fenêtrées</dd>
+              <dt>Common Table Expression (CTE)</dt>
+              <dd>Requêtes simples</dd>
+              <dd>Requêtes récursives</dd>
+              <dd>CTE modifiantes</dd>
+              <dt>Requêtes orientées objet</dt>
+              <dd>Types composites</dd>
+              <dd>SQL &amp; objets</dd>
+              <dd>Convertisseurs</dd>
+            </dl>
           </div>
 {% include "fr/_service_panel.html.twig" with { "active": "training" } %}
         </div>

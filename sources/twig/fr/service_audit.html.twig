@@ -5,76 +5,31 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <ol class="breadcrumb">
-              <li><a href="#">Accueil</a></li>
-              <li>Nos offres</li>
-              <li class="active">Conseil</li>
-            </ol>
+{% include "fr/_breadcrumb.html.twig" with { "breadcrumb": { "Accueil": "main_index", "Nos offres": "", "Conseil": "" } } %}
           </div>
         </div>
         <div class="row">
           <div class="col-sm-9">
             <h1>Conseil &amp; audit</h1>
             <p class="lead">Analyser une situation, produire des métriques, proposer et évaluer des solutions; que ce soit pour des compétences ou des performances, c'est avant tout un travail en osmose avec vos équipes.</p>
-            <h2>Comprendre</h2>
-            <p>Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla. Nullam quis risus eget urna texte en gras mollis ornare vel eu leo. Cras justo odio, <strong>texte en gras</strong>, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla. Donec id elit non mi porta gravida at eget metus.</p>
+            <h2>Architecture de base de données</h2>
+            <p>La structuration des données est la première étape engageante d'un projet. Véritables fondations, les types de données du moteur de relationnel Postgresql permettent de combiner plusieurs objectifs :</p>
             <ul>
-              <li>Exemple de liste</li>
-              <li>Exemple de liste</li>
-              <li>Exemple de liste</li>
+              <li>Fonctionnalités</li>
+              <li>Performances</li>
+              <li>Évolutivité</li>
             </ul>
-            <h2>Analyser</h2>
-            <p>Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla. Nullam quis risus eget urna texte en gras mollis ornare vel eu leo. Cras justo odio, <strong>texte en gras</strong>, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla. Donec id elit non mi porta gravida at eget metus.</p>
-            <blockquote>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
-            </blockquote>
-            <h2>Transmettre</h2>
-            <p>Etiam porta sem malesuada magna mollis euismod. <a href="#">Ceci est un lien</a>. Donec ullamcorper nulla non metus auctor fringilla. Nullam quis risus eget urna texte en gras mollis ornare vel eu leo. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec ullamcorper nulla non metus auctor fringilla. Donec id elit non mi porta gravida at eget metus.</p>
-            <p><a href="" class="btn">Bouton d'action</a><a href="" class="btn btn-sm">Petit bouton</a><a href="" class="btn btn-xs">Plus petit</a></p>
-            <h3>Livrable</h3>
-            <p>Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla. Nullam quis risus eget urna texte en gras mollis ornare vel eu leo.</p>
-            <table class="table">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>First Name</th>
-                  <th>Last Name</th>
-                  <th>Username</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <td>3</td>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-              </tbody>
-            </table>
-            <p>Etiam porta sem malesuada magna mollis euismod. Donec ullamcorper nulla non metus auctor fringilla. Nullam quis risus eget urna texte en gras mollis ornare vel eu leo.</p>
-    
-            <ul class="pagination">
-              <li><a href="#">&laquo;</a></li>
-              <li><a href="#">1</a></li>
-              <li><a href="#">2</a></li>
-              <li><a href="#">3</a></li>
-              <li><a href="#">4</a></li>
-              <li><a href="#">5</a></li>
-              <li><a href="#">&raquo;</a></li>
-            </ul>
+            <p>L'analyse préalable du métier, des besoins et des contraintes permettent de déterminer le meilleur compromis pour placer les performances là où elles sont nécessaires.</p>
+            <dl>
+              <dt>TJM 800€</dt>
+              <dd>Frais en sus</dd>
+            </dl>
+            <h2>Problèmes de performances</h2>
+            <p>Que ce soit avec ou sans ORM, des problèmes de performances sont souvent le signe d'un défaut structurel ou d'une mauvaise utilisation de la base. Pour déterminer les causes et proposer les solutions adaptées, il est nécessaire de comprendre comment est utilisée la base de données. Dans la plupart des cas, il est possible d'appliquer un correctif aussi rapide que temporaire sous la forme d'un cache évitant de solliciter la partie incriminée. Une analyse plus fine permet de déterminer la conduite à tenir à long terme.</p>
+            <dl>
+            <dt>TJM 800€</dt>
+            <dd>Frais en sus</dd>
+            </dl>
           </div>
 {% include "fr/_service_panel.html.twig" with { "active": "audit" } %}
         </div>

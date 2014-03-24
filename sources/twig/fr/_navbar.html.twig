@@ -5,7 +5,7 @@
           <div class="col-md-8">
             <ul class="nav-lang">
               <li>FR</li>
-              <li><a href="?lang=en">EN</a></li>
+              <!-- <li><a href="?lang=en">EN</a></li> -->
             </ul>
             <div class="navbar" role="navigation">
               <div class="container-fluid">
@@ -36,7 +36,7 @@
                       </ul>
                     </li>
                     <li><a href="{{ app.url_generator.generate('main_about') }}">À propos</a></li>
-                    <li><a href="#">Contact</a></li>
+                    <li><a href="{{ app.url_generator.generate('main_contact') }}">Contact</a></li>
                   </ul>
                 </div><!--/.nav-collapse -->
               </div>

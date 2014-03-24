@@ -19,6 +19,7 @@ class MainController implements ControllerProviderInterface
         $controller_collection->get('/navbar', [ $this, 'executeNavbar' ])->bind('main_navbar')->value('lang', 'fr');
         $controller_collection->get('/fabrik/pomm', [ $this, 'executeFabrikPomm' ])->bind('main_fabrik_pomm')->value('lang', 'fr');
         $controller_collection->get('/about', [ $this, 'executeAbout' ])->bind('main_about')->value('lang', 'fr');
+        $controller_collection->get('/contact', [ $this, 'executecontact' ])->bind('main_contact')->value('lang', 'fr');
         $controller_collection->get('/service/audit', [ $this, 'executeServiceAudit' ])->bind('main_service_audit')->value('lang', 'fr');
         $controller_collection->get('/service/backing', [ $this, 'executeServiceBacking' ])->bind('main_service_backing')->value('lang', 'fr');
         $controller_collection->get('/service/training', [ $this, 'executeServiceTraining' ])->bind('main_service_training')->value('lang', 'fr');

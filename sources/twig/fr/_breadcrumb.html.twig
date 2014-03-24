@@ -1,0 +1,12 @@
+            <ol class="breadcrumb">
+{% for item, url in breadcrumb %}
+  {% if loop.last %}
+              <li class="active">{{ item }}</li>
+  {% elseif url=="" %}
+              <li>{{ item }}</li>
+  {% else %}
+              <li><a href="{{ app.url_generator.generate(url) }}">{{ item }}</a></li>
+  {% endif %}
+{% endfor %}
+            </ol>
+
