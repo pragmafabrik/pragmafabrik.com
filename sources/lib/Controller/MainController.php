@@ -20,6 +20,7 @@ class MainController implements ControllerProviderInterface
         $controller_collection->get('/fabrik/pomm', [ $this, 'executeFabrikPomm' ])->bind('main_fabrik_pomm')->value('lang', 'fr');
         $controller_collection->get('/about', [ $this, 'executeAbout' ])->bind('main_about')->value('lang', 'fr');
         $controller_collection->get('/contact', [ $this, 'executecontact' ])->bind('main_contact')->value('lang', 'fr');
+        $controller_collection->post('/contact', [ $this, 'executePostContact' ])->bind('main_post_contact')->value('lang', 'fr');
         $controller_collection->get('/service/audit', [ $this, 'executeServiceAudit' ])->bind('main_service_audit')->value('lang', 'fr');
         $controller_collection->get('/service/backing', [ $this, 'executeServiceBacking' ])->bind('main_service_backing')->value('lang', 'fr');
         $controller_collection->get('/service/training', [ $this, 'executeServiceTraining' ])->bind('main_service_training')->value('lang', 'fr');
@@ -73,7 +74,7 @@ class MainController implements ControllerProviderInterface
         $form = $this->app['form.factory']
             ->createBuilder(new \Form\Contact())
             ->getForm()
-            ->bind($this->app['request']);
+            ;
 
         return $this->app['twig']->render(sprintf("%s/contact.html.twig", $lang), [ 'form' => $form->createView() ]);
     }
@@ -91,20 +92,21 @@ class MainController implements ControllerProviderInterface
             $this->app['mailer']->send(
                 \Swift_Message::newInstance()
                     ->setSubject(sprintf('[pragmafabrik.com] Demande de contact (%s).', $values['name']))
-                    ->setFrom(array($values['email'] => $values['name']))
-                    ->setReplyTo(array($values['email'] => $values['name']))
-                    ->setTo(array($this->app['config.swiftmailer']['destination']))
-                    ->setBody($values['message'])
+                    ->setFrom("noreply@pragmafabrik.com")
+                    ->setSender($this->app['config.swiftmailer']['destination'])
+                    ->setReplyTo([$values['email']])
+                    ->setTo([$this->app['config.swiftmailer']['destination']])
+                    ->setBody(sprintf("from: %s %s (%s)\n\n%s", $values['email'], $values['name'], $values['company'], $values['message']))
                 );
             $flash_message = [ 'fr' =>  'Votre demande de contact a été envoyée.', 'en' => 'Your contact request has been sent.' ];
             $this->app['session']->getFlashBag()->add('success', $flash_message[$this->app['request']->get('lang', 'fr')]);
 
-            return $this->app->redirect($this->app['url_generator']->generate('main_index'));
+            return $this->app->redirect($this->app['url_generator']->generate('main_contact'));
         }
 
         $flash_message = [ 'fr' =>  'Votre demande de contact n\'a pu aboutir.', 'en' => 'Your contact query could not be fulfilled.' ];
         $this->app['session']->getFlashBag()->add('error', $flash_message[$this->app['request']->get('lang', 'fr')]);
 
-        return $this->executeContact($lang);
+        return $this->app['twig']->render(sprintf("%s/contact.html.twig", $lang), [ 'form' => $form->createView() ]);
     }
 }

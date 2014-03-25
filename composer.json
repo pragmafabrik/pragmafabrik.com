@@ -6,9 +6,12 @@
         "symfony/twig-bridge": "2.3.*",
         "erusev/parsedown": "0.7.*",
         "silex/silex": "1.0.*",
-        "symfony/validator": "2.3.*",
-        "symfony/form": "2.3.*",
+        "symfony/validator": "~2.3",
+        "symfony/form": "~2.3",
         "swiftmailer/swiftmailer": ">=4.1.2,<4.2-dev",
-        "twig/twig": "1.*"
+        "twig/twig": "1.*",
+        "symfony/translation": "~2.3",
+        "symfony/config": "~2.3",
+        "symfony/security-csrf": "~2.3"
     }
 }

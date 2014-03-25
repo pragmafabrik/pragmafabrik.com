@@ -1,0 +1,63 @@
+{% extends "layout.html.twig" %}
+
+{% block content %}
+    <section class="section page">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+{% include "fr/_breadcrumb.html.twig" with { "breadcrumb": { "Accueil": "main_index", "contact": "" } } %}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <h1>Contactez-nous</h1>
+            <p class="lead">Merci de remplir le formulaire ci-dessous, nous vous répondrons dans les plus brefs délais.</p>
+            <p class="fields-required">Les champs marqués d’un astérisque (<span class="required">*</span>) sont obligatoires.</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+{% if form.vars["errors"]|length != 0 %}
+  {% for error in form.vars["errors"] %}
+            <div class="alert alert-danger">
+              {{ error.getMessage() }}
+            </div>
+  {% endfor %}
+{% endif %}
+{% if app.session.getFlashBag().has('success') %}
+            <div class="alert alert-success">
+              <dl>
+  {% for message in app.session.getFlashBag.get('success') %}
+                <dd>{{ message }}</dd>
+  {% endfor %}
+              </dl>
+            </div>
+{% endif %}
+            <form role="form" class="form-contact" method="post" action="{{ app.url_generator.generate('main_post_contact') }}">
+              <div class="form-group{{ form["name"].vars["errors"]|length > 0 ? " has-error" : "" }}">
+                <label class="control-label" for="name-surname">Nom et prénom <span class="required">*</span> <small>{% for error in form["name"].vars["errors"] %}({{ error.getMessage() }}){% endfor %}</small></label>
+                <input type="text" class="form-control" name="contact[name]" id="name-surname" value="{{ form["name"].vars["value"] }}" placeholder="Entrez votre nom et prénom">
+              </div>
+              <div class="form-group{{ form["email"].vars["errors"]|length > 0 ? " has-error" : "" }}">
+                <label class="control-label" for="email">Adresse email <span class="required">*</span> <small>{% for error in form["email"].vars["errors"] %}({{ error.getMessage() }}){% endfor %}</small></label>
+                <input type="email" class="form-control" name="contact[email]" id="email" value="{{ form["email"].vars["value"] }}" placeholder="Entrez votre adresse email">
+              </div>
+              <div class="form-group">
+                <label for="business">Société</label>
+                <input type="text" class="form-control" name="contact[company]" id="business" value="{{ form["company"].vars["value"] }}" placeholder="Entrez le nom de votre société">
+              </div>
+              <div class="form-group{{ form["message"].vars["errors"]|length > 0 ? " has-error" : "" }}">
+                <label class="control-label" for="message">Votre message <span class="required">*</span> <small>{% for error in form["message"].vars["errors"] %}({{ error.getMessage() }}){% endfor %}</small></label>
+                <textarea class="form-control" rows="5" name="contact[message]" id="message">{{ form["message"].vars["value"] }}</textarea>
+              </div>
+              <input type="hidden" name="contact[_pf_token]" value="{{ form["_pf_token"].vars["value"] }}" />
+              <button type="submit" class="btn">Envoyer</button>
+            </form>
+          </div>
+          <div class="col-sm-offset-1 col-sm-5">
+            <p class="contact-way">Par téléphone<br/><span class="tel">(+33)6 60 15 49 80</span></p>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}

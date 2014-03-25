@@ -11,7 +11,9 @@ class Contact extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('name', 'text', array('constraints' => new Constraints\NotBlank(array('message' => 'Champs obligatoire'))))
+        $builder
+            ->add('name', 'text', array('constraints' => new Constraints\NotBlank(array('message' => 'Champs obligatoire'))))
+            ->add('company', 'text')
             ->add('email', 'text', array('constraints' => array(new Constraints\NotBlank(array('message' => 'Champs obligatoire')), new Constraints\Email(array('message' => 'Email invalide')))))
             ->add('message', 'textarea', array('constraints' => new Constraints\NotBlank(array('message' => 'Champs obligatoire'))));
     }

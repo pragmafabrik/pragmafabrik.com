@@ -50,9 +50,9 @@ if (preg_match('/^dev/', ENV))
 {
     $app['debug'] = true;
     $app['swiftmailer.transport'] = $app->share(function() { return Swift_NullTransport::newInstance(); });
-    $app['swiftmailer.logger'] = $app->share(function() { return new Swift_Plugins_MessageLogger(); });
+    $app['swiftmailer.logger'] = $app->share(function() { return new Swift_Plugins_Loggers_ArrayLogger(); });
     $app['mailer'] = $app->share($app->extend('mailer', function($mailer, $app) {
-        $mailer->registerPlugin($app['swiftmailer.logger']);
+        $mailer->registerPlugin(new Swift_Plugins_LoggerPlugin($app['swiftmailer.logger']));
         return $mailer;
     }));
     $app->register(new Provider\MonologServiceProvider(), array('monolog.logfile' => PROJECT_DIR.'/logs/application.log'));
