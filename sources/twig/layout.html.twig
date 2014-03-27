@@ -56,28 +56,11 @@
       </div>
     </header>
 {% block content %}{% endblock %}
-    <footer class="footer section">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-6 col-md-5 col-md-offset-1">
-            <h3 class="footer-title"><span>À propos</span></h3>
-            <p>PragmaFabrik en trois mots : <u>pragmatique</u>, <u>créatif</u> et <u>transverse</u>. Pragmatique c'est évaluer les moyens techniques et les compromis à mettre en place pour atteindre les objectifs. Comprendre les contraintes c'est se donner les moyens d'être créatif. Transverse car les solutions efficaces s'envisagent sur l'ensemble des domaines techniques en œuvre. <a href="{{ app.url_generator.generate('main_about', {  "lang": app.request.get('lang') }) }}">En savoir plus</a></p>
-          </div>
-          <div class="col-sm-6 col-md-5">
-            <h3 class="footer-title"><span>Suivez-nous</span></h3>
-            <ul class="nav-social">
-              <li><a href="https://github.com/pragmafabrik"><span class="ico-social ico-github"></span><span>GitHub</span></a></li>
-              <li><a href="https://twitter.com/PragmaFabrik"><span class="ico-social ico-twitter"></span><span>Twitter</span></a></li>
-            </ul>
-          </div>
-        </div>  
-      </div>
-    </footer>
+{% include app.request.get('lang') ~ "/_footer.html.twig" %}
 
     <div class="bottom">
       <ul class="nav-btm">
         <li><a href="#">Mentions légales</a></li>
-        <li><a href="#">Nous rejoindre</a></li>
       </ul>
     </div>
   </body>
