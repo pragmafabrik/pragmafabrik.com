@@ -60,7 +60,7 @@
 
     <div class="bottom">
       <ul class="nav-btm">
-        <li><a href="#">Mentions légales</a></li>
+        <li><a href="{{ app.url_generator.generate("main_legal", { "lang": app.request.get('lang') }) }}">Mentions légales</a></li>
       </ul>
     </div>
   </body>
