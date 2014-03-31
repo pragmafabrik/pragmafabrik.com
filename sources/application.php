@@ -17,17 +17,17 @@ $app->error(function(Exception $e, $code) use ($app) {
 
     if ($app['debug'])
     {
-        //return;
+        return;
     }
 
     if ($code == '500')
     {
-        $this->app['mailer']->send(
+        $app['mailer']->send(
             \Swift_Message::newInstance()
             ->setSubject(sprintf('[pragmafabrik.com] Erreur 500'))
             ->setFrom("noreply@pragmafabrik.com")
-            ->setSender($this->app['config.swiftmailer']['destination'])
-            ->setTo([$this->app['config.swiftmailer']['destination']])
+            ->setSender($app['config.swiftmailer']['destination'])
+            ->setTo([$app['config.swiftmailer']['destination']])
             ->setBody(sprintf("Date='%s'\nUrl='%s' (%s)\nMessage='%s'\n", date('d-m-Y H:i:s'), $app['request']->getRequestUri(), $app['request']->getRealMethod(), $e->getMessage()))
         );
     }
@@ -37,7 +37,7 @@ $app->error(function(Exception $e, $code) use ($app) {
         '500' => [ 'fr' => 'Un problème technique empêche l\'affichage du contenu demandé.', 'en' => 'A technical problem prevents us from displaying the content you asked.' ],
         ];
 
-    $lang = $app['request']->get('lang', 'en');
+    $lang = $app['request']->get('lang', 'fr');
 
     try
     {

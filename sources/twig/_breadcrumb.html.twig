@@ -5,7 +5,7 @@
   {% elseif url=="" %}
               <li>{{ item }}</li>
   {% else %}
-              <li><a href="{{ app.url_generator.generate(url, ['lang': app.request.get('lang', 'en')]) }}">{{ item }}</a></li>
+              <li><a href="{{ app.url_generator.generate(url, {'lang':app.request.get('lang','en')}) }}">{{ item }}</a></li>
   {% endif %}
 {% endfor %}
             </ol>
