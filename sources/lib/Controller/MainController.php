@@ -29,7 +29,7 @@ class MainController implements ControllerProviderInterface
 
         $controller_collection
             ->value('lang', 'fr')
-            ->assert('lang', '(fr|en)')
+            ->assert('lang', 'fr')
             ;
 
         return $controller_collection;

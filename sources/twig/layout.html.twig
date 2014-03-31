@@ -50,11 +50,11 @@
   <body>
     <header class="header">
       <div class="container">
-{{ render(app.url_generator.generate("main_navbar", { "lang": app.request.get('lang', 'en') })) }}
+{{ render(app.url_generator.generate("main_navbar", { "lang": app.request.get('lang', 'fr') })) }}
       </div>
     </header>
 {% block content %}{% endblock %}
-{% include app.request.get('lang', 'en') ~ "/_footer.html.twig" %}
+{% include app.request.get('lang', 'fr') ~ "/_footer.html.twig" %}
 
     <div class="bottom">
       <ul class="nav-btm">
