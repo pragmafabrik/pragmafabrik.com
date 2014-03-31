@@ -34,9 +34,11 @@ $app->register(new Provider\SwiftmailerServiceProvider(), array('swiftmailer.opt
 $app->register(new Provider\TwigServiceProvider(), array(
     'twig.path' => array(PROJECT_DIR.'/sources/twig'),
 ));
+/*
 $app->register(new \Pomm\Silex\PommServiceProvider(), array(
     'pomm.databases' => $app['config.pomm.dsn'][ENV]
 ));
+ */
 
 // Service container customization. 
 $app['loader'] = $loader;

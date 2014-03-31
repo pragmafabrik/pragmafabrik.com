@@ -5,7 +5,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-{% include "fr/_breadcrumb.html.twig" with { "breadcrumb": { "Accueil": "main_index", "contact": "" } } %}
+{% include "_breadcrumb.html.twig" with { "breadcrumb": { "Accueil": "main_index", "Demande de contact": "" } } %}
           </div>
         </div>
         <div class="row">
@@ -33,7 +33,7 @@
               </dl>
             </div>
 {% endif %}
-            <form role="form" class="form-contact" method="post" action="{{ app.url_generator.generate('main_post_contact') }}">
+            <form role="form" class="form-contact" method="post" action="{{ app.url_generator.generate('main_post_contact', {'lang': 'fr'}) }}">
               <div class="form-group{{ form["name"].vars["errors"]|length > 0 ? " has-error" : "" }}">
                 <label class="control-label" for="name-surname">Nom et prénom <span class="required">*</span> <small>{% for error in form["name"].vars["errors"] %}({{ error.getMessage() }}){% endfor %}</small></label>
                 <input type="text" class="form-control" name="contact[name]" id="name-surname" value="{{ form["name"].vars["value"] }}" placeholder="Entrez votre nom et prénom">

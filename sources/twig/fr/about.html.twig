@@ -5,10 +5,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <ol class="breadcrumb">
-              <li><a href="{{ app.url_generator.generate('main_index') }}">Accueil</a></li>
-              <li class="active">À propos</li>
-            </ol>
+{% include "_breadcrumb.html.twig" with { "breadcrumb": { "Accueil": "main_index", "À propos": "" } } %}
           </div>
         </div>
         <div class="row">
@@ -26,7 +23,7 @@
                   </ul>
               </div>
             </div>
-             Conscient que l'industrialisation des applications web à forte composante métier nécessite un développement sur mesure avec une architecture ad hoc, il met en avant la valeur ajoutée que la base de données relationnelle peut apporter dans ces projets. Il crée PragmaFabrik en 2013 pour proposer son expertise et des outils tels que <a href="{{ app.url_generator.generate('main_fabrik_pomm') }}">Pomm</a> autour de l'intégration de la base de données Postgresql dans les développements PHP.</p>
+             Conscient que l'industrialisation des applications web à forte composante métier nécessite un développement sur mesure avec une architecture ad hoc, il met en avant la valeur ajoutée que la base de données relationnelle peut apporter dans ces projets. Il crée PragmaFabrik en 2013 pour proposer son expertise et des outils tels que <a href="{{ app.url_generator.generate('main_fabrik_pomm', {'lang': 'fr'}) }}">Pomm</a> autour de l'intégration de la base de données Postgresql dans les développements PHP.</p>
           </div>
         </div>
       </div>
