@@ -5,10 +5,6 @@ use \Symfony\Component\HttpFoundation\Response;
 
 $app = require "bootstrap.php";
 $app->mount('/{lang}/', new \Controller\MainController());
-$app['controllers']
-    ->value('lang', 'fr')
-    ->assert('lang', '(fr|en)')
-    ;
 //$app->mount('/{lang}/blog', new \Controller\BlogController());
 
 $app->get('/', function() use ($app) { return $app->redirect($app['url_generator']->generate('main_index', [ 'lang' => 'fr' ])); })->bind('index');

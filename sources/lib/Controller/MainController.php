@@ -27,6 +27,11 @@ class MainController implements ControllerProviderInterface
         $controller_collection->get('/service/training', [ $this, 'executeServiceTraining' ])->bind('main_service_training');
         $controller_collection->get('/service/support', [ $this, 'executeServiceSupport' ])->bind('main_service_support');
 
+        $controller_collection
+            ->value('lang', 'fr')
+            ->assert('lang', '(fr|en)')
+            ;
+
         return $controller_collection;
     }
 
