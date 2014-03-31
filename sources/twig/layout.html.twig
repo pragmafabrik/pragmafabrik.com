@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="{{ app.request.get('lang', 'en') }}">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +10,7 @@
     <meta name="description" content="Official site of PragmaFabrik SARL" />
 {% endif %}
     <meta name="keywords" content="PragmaFabrik, pomm, postgresql, slapom, php" />
-    <meta name="language" content="{{ app.request.get('lang') }}" />
+    <meta name="language" content="{{ app.request.get('lang', 'en') }}" />
     <meta name="robots" content="index, follow" />
     <title>{% block title %}{% endblock %}</title>
 
@@ -50,15 +50,15 @@
   <body>
     <header class="header">
       <div class="container">
-{{ render(app.url_generator.generate("main_navbar", { "lang": app.request.get('lang') })) }}
+{{ render(app.url_generator.generate("main_navbar", { "lang": app.request.get('lang', 'en') })) }}
       </div>
     </header>
 {% block content %}{% endblock %}
-{% include app.request.get('lang') ~ "/_footer.html.twig" %}
+{% include app.request.get('lang', 'en') ~ "/_footer.html.twig" %}
 
     <div class="bottom">
       <ul class="nav-btm">
-        <li><a href="{{ app.url_generator.generate("main_legal", { "lang": app.request.get('lang') }) }}">Mentions légales</a></li>
+        <li><a href="{{ app.url_generator.generate("main_legal", { "lang": app.request.get('lang', 'fr') }) }}">Mentions légales</a></li>
       </ul>
     </div>
   </body>

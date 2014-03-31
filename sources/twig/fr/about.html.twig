@@ -5,10 +5,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <ol class="breadcrumb">
-              <li><a href="{{ app.url_generator.generate('main_index') }}">Accueil</a></li>
-              <li class="active">À propos</li>
-            </ol>
+{% include "_breadcrumb.html.twig" with { "breadcrumb": { "Accueil": "main_index", "À propos": "" } } %}
           </div>
         </div>
         <div class="row">
