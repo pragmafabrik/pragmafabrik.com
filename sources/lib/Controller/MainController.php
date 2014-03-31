@@ -102,7 +102,7 @@ class MainController implements ControllerProviderInterface
             $flash_message = [ 'fr' =>  'Votre demande de contact a été envoyée.', 'en' => 'Your contact request has been sent.' ];
             $this->app['session']->getFlashBag()->add('success', $flash_message[$this->app['request']->get('lang', 'fr')]);
 
-            return $this->app->redirect($this->app['url_generator']->generate('main_contact'));
+            return $this->app->redirect($this->app['url_generator']->generate('main_contact', ['lang' => $this->app['request']->get('lang')]));
         }
 
         $flash_message = [ 'fr' =>  'Votre demande de contact n\'a pu aboutir.', 'en' => 'Your contact query could not be fulfilled.' ];
