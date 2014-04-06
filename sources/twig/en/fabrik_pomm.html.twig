@@ -1,0 +1,49 @@
+{% extends "layout.html.twig" %}
+
+{% block title %} - Fabrik{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="/css/home.css">
+{% endblock %}
+
+{% block content %}
+<section class="section page">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+{% include "_breadcrumb.html.twig" with { "breadcrumb": { "Homepage": "main_index", "Fabrik": "", "Pomm": "" } } %}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-9">
+            <h1>Pomm</h1>
+            <p class="lead">Pomm is an open source model layer manager dedicated to the Postgresql database for PHP developments. It proposes a different approach from ORM and allow to leverage the database engine's features and performances.</p>
+            <div class="row">
+              <div class="col-md-4">
+                <h2>Simple</h2>
+                <p>Even though the philosophy is different, Pomm can be used the same way as classical ORM (Doctrine, Propel etc.). A database inspector allows to generate mapping classes from your database structure to be efficient in a snap. <br /></p>
+              </div>
+              <div class="col-md-4">
+                <h2>Powerful</h2>
+                <p>Pomm integrates relational logic in object oriented developments. Thus, developers can directly use SQL and functionalities offered by the Postgresql engine. Pomm also proposes a high level type conversion from / to PHP.</p>
+              </div>
+              <div class="col-md-4">
+                <h2>Fast</h2>
+                <p>Free from any abstraction layer, Pomm proposes a direct access to the database, hence ensuring incomparable performances to conventional ORM. Moreover, the use of Postgresql's mechanisms allows to stick to its peak performance level.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <ul class="nav-secondary list-group">
+              <li class="list-group-item active">Pomm</li>
+            </ul>
+          </div>
+        </div><!-- row -->
+        <div class="row">
+          <div class="col-sm-9">
+            <div class="well well-sm">More informations on <a href="http://www.pomm-project.org">Pomm's open source website</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %}
