@@ -5,7 +5,7 @@
           <div class="col-md-8">
             <ul class="nav-lang">
               <li>FR</li>
-              <!-- <li><a href="?lang=en">EN</a></li> -->
+              <li><a href="{{ app.url_generator.generate(app.request.get('route', 'main_index'), { 'lang': 'en' }) }}">EN</a></li>
             </ul>
             <div class="navbar" role="navigation">
               <div class="container-fluid">
