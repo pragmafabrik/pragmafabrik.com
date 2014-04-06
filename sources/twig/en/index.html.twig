@@ -1,0 +1,48 @@
+{% extends "layout.html.twig" %}
+
+{% block title %} - Homepage{% endblock %}
+
+{% block css %}
+    <link rel="stylesheet" href="/css/home.css">
+{% endblock %}
+
+{% block content %}
+    <section class="home-intro section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-1 text-center">
+            <h2 class="home-intro-title">Expert PostgreSQL <span>&</span> PHP</h2>
+            <p class="home-intro-subtitle">DevOps Culture</p>
+            <p class="home-intro-txt">A pragmatic and transverse technical approach. <br />dedicated to business oriented web applications au service des applications web à forte composante métier</p>
+            <p>
+              <a href="{{ app.url_generator.generate('main_service_audit', {'lang': 'en'}) }}" class="btn btn-orange">Our services</a>
+              <a href="{{ app.url_generator.generate('main_service_training', {'lang': 'en'}) }}" class="btn btn-orange">Our trainings</a>
+            </p>
+          </div>
+          <div class="col-md-3">
+            <img src="/img/illus-postgresql-php.jpg" alt="" class="center-block" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="home-pomm section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="home-pomm-title">Creator of Pomm</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6">
+            <p>Pomm is a model management framework dedicated to Postgresql. It proposes a different approach from ORM to benefit from the underlying engine's features and performances.</p>
+            <a href="{{ app.url_generator.generate('main_fabrik_pomm', {'lang': 'fr'}) }}" class="btn btn-white">Discover Pomm</a>
+          </div>
+          <div class="col-sm-6">
+            <p class="home-pomm-quote">Pomm proposes a <strong>new approach</strong> to data manipulation!</p>
+            <img src="/img/logo-pomm.png" class="pull-right" alt="Pomm" />
+          </div>
+        </div>
+      </div>
+    </section>
+{% endblock %} 
