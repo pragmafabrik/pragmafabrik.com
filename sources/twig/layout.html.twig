@@ -50,7 +50,7 @@
   <body>
     <header class="header">
       <div class="container">
-{{ render(app.url_generator.generate("main_navbar", { "lang": app.request.get('lang', 'fr') })) }}
+{{ render(app.url_generator.generate("main_navbar", { "lang": app.request.get('lang', 'fr'), "route": app.request.get('_route') })) }}
       </div>
     </header>
 {% block content %}{% endblock %}
@@ -58,7 +58,7 @@
 
     <div class="bottom">
       <ul class="nav-btm">
-        <li><a href="{{ app.url_generator.generate("main_legal", { "lang": app.request.get('lang', 'fr') }) }}">Mentions légales</a></li>
+        <li><a href="{{ app.url_generator.generate("main_legal", { "lang": 'fr' }) }}">Mentions légales</a></li>
       </ul>
     </div>
   </body>

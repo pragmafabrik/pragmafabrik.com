@@ -27,13 +27,23 @@ $app->error(function(Exception $e, $code) use ($app) {
             ->setBody(sprintf("Date='%s'\nUrl='%s' (%s)\nMessage='%s'\n", date('d-m-Y H:i:s'), $app['request']->getRequestUri(), $app['request']->getRealMethod(), $e->getMessage()))
         );
     }
+    elseif ($code == "404")
+    {
+        if (preg_match('#/(fr|en)/.*#', $app['request']->getUri(), $matchs))
+        {
+            $lang = $matchs[1];
+        }
+        else
+        {
+            $lang = 'en';
+        }
+    }
 
     $errors = [ 
         '404' => [ 'fr' => 'La ressource demandée n\'existe pas.', 'en' => 'The content you are asking does not exist.' ], 
         '500' => [ 'fr' => 'Un problème technique empêche l\'affichage du contenu demandé.', 'en' => 'A technical problem prevents us from displaying the content you asked.' ],
         ];
 
-    $lang = $app['request']->get('lang', 'fr');
 
     try
     {
