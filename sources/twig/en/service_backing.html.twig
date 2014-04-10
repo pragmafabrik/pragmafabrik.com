@@ -1,0 +1,28 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}- Technical backing{% endblock %}
+
+{% block description %}{% endblock %}
+
+{% block content %}
+    <section class="section page">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+{% include "_breadcrumb.html.twig" with { "breadcrumb": { "Homepage": "main_index", "Our services": "", "Backing": "" } } %}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-9">
+            <h1>Technical backing</h1>
+            <p class="lead">Business oriented projects are ofter critical projects for companies. From conception until developments start, it is interesting to be accompanied by a technical expert to get the project on track.</p>
+            <h2>Backing</h2>
+            <p>Assist a technical team, make collaborative solutions to emerge, it is in first place the taste of team working that motivates the consultant. The intervention of a technical consultant brings by his external culture, a security and wealth that stands far after the end of his mission.</p>
+            <h2>BootCamp</h2>
+            <p>During the early stage of a prohect, it may be interesting to make members to exchange with a dedicated consultant. In place in your project's context, the consultant will orientate his knowledge according to your business.</p>
+          </div>
+{% include "en/_service_panel.html.twig" with { "active": "backing" } %}
+        </div>
+      </div>
+    </section>
+{% endblock %}

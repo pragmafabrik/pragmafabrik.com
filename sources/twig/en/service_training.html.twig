@@ -1,0 +1,74 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}- Training{% endblock %}
+
+{% block description %}Our trainings offer about Pomm, PHP and Postgresql{% endblock %}
+
+{% block content %}
+    <section class="section page">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+{% include "_breadcrumb.html.twig" with { "breadcrumb": { "Homepage": "main_index", "Our services": "", "Trainings": "" } } %}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-9">
+            <h1>Trainings</h1>
+            <p class="lead">As Postgresql &amp; PHP expert, PragmaFabrik is pleased to share her knowledge</p>
+            <h2>Pomm</h2>
+            <p>Guided by a practical example, we will go through Postgresql's rich type set, complex SQL queries and how to use them in an object oriented PHP model layer.</p>
+            <p>Advanced Postgresql use through Pomm (2 days)</p>
+            <dl>
+              <dt>First steps with Postgresql</dt>
+              <dd>Connect with the command line</dd>
+              <dd>PSQL : survival guide</dd>
+              <dd>Configure PSQL</dd>
+              <dt>Structures and bases</dt>
+              <dd>Schémas and <code>search_path</code></dd>
+              <dd>Tables and sequences</dd>
+              <dd><code>uuid</code> extension</dd>
+              <dt>First steps with Pomm</dt>
+              <dd>Database introspection</dd>
+              <dd>Entities structure</dd>
+              <dd>First queries</dd>
+              <dt>Model layer</dt>
+              <dd>Organize queries</dd>
+              <dd>Dynamic queries</dd>
+              <dd>Projection operators</dd>
+              <dt>Collections and entities</dt>
+              <dd>Results iterators</dd>
+              <dd>Use of entities in the view</dd>
+              <dd>Augmented entities</dd>
+              <dt>Complex structures</dt>
+              <dd>Arrays</dd>
+              <dd>Geometric types</dd>
+              <dd>Time types</dd>
+              <dd>JSON, HStore &amps; converters</dd>
+              <dt>Modifications</dt>
+              <dd>Entity creation</dd>
+              <dd>Modification</dd>
+              <dd>Deletion</dd>
+              <dt>SQL queries</dt>
+              <dd>Query building</dd>
+              <dd>Virtual fields</dd>
+              <dd>Joins</dd>
+              <dt>Set alteration</dt>
+              <dd>Values and generators</dd>
+              <dd>Aggregates</dd>
+              <dd>Window functions</dd>
+              <dt>Common Table Expression (CTE)</dt>
+              <dd>Simple queries</dd>
+              <dd>Recursive queries</dd>
+              <dd>Writable CTE</dd>
+              <dt>Objects in SQL</dt>
+              <dd>Composite types</dd>
+              <dd>Converters</dd>
+            </dl>
+          </div>
+{% include "en/_service_panel.html.twig" with { "active": "training" } %}
+        </div>
+      </div>
+    </section>
+{% endblock %}
+

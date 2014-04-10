@@ -1,0 +1,28 @@
+{% extends "layout.html.twig" %}
+
+{% block title %}- Support technique{% endblock %}
+
+{% block description %}Our support offer on Pomm, PHP and Postgresql{% endblock %}
+
+{% block content %}
+    <section class="section page">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+{% include "_breadcrumb.html.twig" with { "breadcrumb": { "Homepage": "main_index", "Our services": "", "Support": "" } } %}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-9">
+            <h1>Support</h1>
+            <p class="lead">As creator of tools dedicated to critical part of business applications, PragmaFabrik proposes a personal support.</p>
+            <h2>Taylor made tools</h2>
+            <p>Pomm is a free software tool so integration of patches may not be accurate to your single use of it. PragmaFabrik can guaranty a specific version made to fit your needs and constraints.</p>
+            <h2>Contact us</h2>
+            <p>Our technical team will be pleased to answer your questions about Pomm.</p>
+          </div>
+{% include "en/_service_panel.html.twig" with { "active": "support" } %}
+        </div>
+      </div>
+    </section>
+{% endblock %}

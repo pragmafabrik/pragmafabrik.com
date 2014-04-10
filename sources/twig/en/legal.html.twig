@@ -2,8 +2,6 @@
 
 {% block title %} - Mentions légales{% endblock %}
 
-{% block description %}Informations légales du site pragmafabrik.com{% endblock %}
-
 {% block content %}
     <section class="section page">
       <div class="container">
@@ -18,7 +16,7 @@
             <h2>Identification</h2>
             <p>Société à responsabilité limitée au capital de 2 500€, R.C.S. de Nantes - St Nazaire. <a href="https://www.infogreffe.fr/societes/entreprise-societe/798601522-pragmafabrik-440113B025880000.html?afficherretour=false">Voir la fiche complète</a>.</p>
             <h2>Données personnelles</h2>
-            <p>Les seules données personnelles nominatives collectées sur ce site sont celles entrées par vous dans <a href="{{ app.url_generator.generate('main_contact', {'_locale': 'fr'}) }}">le formulaire de contact</a>. Conformément à la loi informatique et libertée, les données vous concernant peuvent vous être envoyées et / ou détruites sur simple demande de votre part. Ces données ne sont en aucun cas revendues ni partagées avec aucune autre entreprise que PragmaFabrik SARL.<p>
+            <p>Les seules données personnelles nominatives collectées sur ce site sont celles entrées par vous dans <a href="{{ app.url_generator.generate('main_contact', {'lang': 'fr'}) }}">le formulaire de contact</a>. Conformément à la loi informatique et libertée, les données vous concernant peuvent vous être envoyées et / ou détruites sur simple demande de votre part. Ces données ne sont en aucun cas revendues ni partagées avec aucune autre entreprise que PragmaFabrik SARL.<p>
             <h2>Navigation</h2>
             <p>La navigation des internautes est tracée par un marqueur <a href="https://www.google.com/analytics">Google Analytics</a> (marque déposée) à des fins statistiques. Aucune donnée nominative n'est associée par PragmaFabrik SARL à votre navigation sur ces sites ni aucun autre.</p>
         </div>

@@ -1,0 +1,27 @@
+{% extends "layout.html.twig" %}
+
+{% block title %} - Our services{% endblock %}
+
+{% block content %}
+    <section class="section page">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+{% include "_breadcrumb.html.twig" with { "breadcrumb": { "Homepage": "main_index", "Our services": "", "Consulting": "" } } %}
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-9">
+            <h1>Consulting &amp; audit</h1>
+            <p class="lead">Analyze a situation, produce metrics, propose and evaluate solutions; whatever for skills or performances, it is in first place a work in collaboration with your teams.</p>
+            <h2>Database architecture</h2>
+            <p>Data structure is the first engaging step of a project. Real foundations, Postgresql's data type allow to combine several objectives: functionalities, performances, evolutivity.</p>
+            <p>A preliminary analysis of the business and the needs makes us able to determine the best compromise to set performances where there are necessary.</p>
+            <h2>Performances problems</h2>
+            <p>With or without ORM, performances problems are often the sign of a structural default or a misuse of the database. In order to determine the causes and propose accurate solutions, it is necessary to understand how the database is used. In most cases, it is possible to ship a fast and short term fix as cache allowing to request the incriminated part. A finest analyze leads to determine how to proceed in the long term.</p>
+          </div>
+{% include "en/_service_panel.html.twig" with { "active": "audit" } %}
+        </div>
+      </div>
+    </section>
+{% endblock %}

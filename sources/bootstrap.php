@@ -29,23 +29,17 @@ require PROJECT_DIR.'/sources/config/config.php';
 $app->register(new Provider\UrlGeneratorServiceProvider());
 $app->register(new Provider\SessionServiceProvider());
 $app->register(new Provider\FormServiceProvider());
+$app->register(new Silex\Provider\TranslationServiceProvider(), array(
+        'locale_fallbacks' => ['fr'],
+    ));
 $app->register(new Provider\ValidatorServiceProvider());
 $app->register(new Provider\SwiftmailerServiceProvider(), array('swiftmailer.options' => $app['config.swiftmailer']));
 $app->register(new Provider\TwigServiceProvider(), array(
     'twig.path' => array(PROJECT_DIR.'/sources/twig'),
 ));
-/*
-$app->register(new \Pomm\Silex\PommServiceProvider(), array(
-    'pomm.databases' => $app['config.pomm.dsn'][ENV]
-));
- */
 
 // Service container customization. 
 $app['loader'] = $loader;
-$app['pomm.connection'] = $app->share(function() use ($app) { return $app['pomm']
-    ->getDatabase()
-    ->getConnection();
-    });
 
 // set DEBUG mode or not
 if (preg_match('/^dev/', ENV))
@@ -58,8 +52,36 @@ if (preg_match('/^dev/', ENV))
         return $mailer;
     }));
     $app->register(new Provider\MonologServiceProvider(), array('monolog.logfile' => PROJECT_DIR.'/logs/application.log'));
-    $app['pomm.connection'] = $app->share($app->extend('pomm.connection', function($connection, $app) { $connection->setLogger($app['monolog']); return $connection; }));
-    $app['twig']->addExtension(new Twig_Extension_Debug());
+    $app->extend('twig', function($twig, $app) { $twig->addExtension(new Twig_Extension_Debug()); return $twig; });
+    $app['twig'] = $app->share($app->extend('twig', function($twig, $app) { $twig->addExtension(new Twig_Extension_Debug()); return $twig; }));
 }
+
+// translations
+$app['translator.domains'] = [
+    'messages' => [
+        'fr' => [
+            'error.404' => 'La ressource demandée n\'existe pas.',
+            'contact.success' => 'Votre demande de contact a été envoyée',
+            ],
+        'en' => [
+            'error.404' => 'The content you are asking does not exist.',
+            'contact.success' => 'Your contact request has been sent',
+            ]
+        ],
+    'validators' => [
+        'fr' => [
+            'contact.name.not_blank' => 'Veuillez saisir votre nom',
+            'contact.email.not_blank' => 'Veuillez saisir votre email',
+            'contact.email.invalid' => 'L\'email saisie est invalide',
+            'contact.message.not_blank' => 'Veuillez saisir un message',
+            ],
+        'en' => [
+            'contact.name.not_blank' => 'Please indicate your name',
+            'contact.email.not_blank' => 'Please indicate your email',
+            'contact.email.invalid' => 'Invalid email address',
+            'contact.message.not_blank' => 'Please let a message',
+            ]
+        ]
+    ];
 
 return $app;

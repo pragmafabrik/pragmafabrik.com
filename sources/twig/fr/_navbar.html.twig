@@ -1,11 +1,11 @@
         <div class="row">
           <div class="col-md-4">
-            <a href="{{ app.url_generator.generate('main_index', { "lang": "fr" }) }}"><img src="/img/logo-pragmafabrik.png" alt="PragmaFabrik" class="logo hidden-xs" /></a>
+            <a href="{{ app.url_generator.generate('main_index', { "_locale": "fr" }) }}"><img src="/img/logo-pragmafabrik.png" alt="PragmaFabrik" class="logo hidden-xs" /></a>
           </div>
           <div class="col-md-8">
             <ul class="nav-lang">
               <li>FR</li>
-              <li><a href="{{ app.url_generator.generate(app.request.get('route', 'main_index'), { 'lang': 'en' }) }}">EN</a></li>
+              <li><a href="{{ app.url_generator.generate(app.request.get('route', 'main_index'), { '_locale': 'en' }) }}">EN</a></li>
             </ul>
             <div class="navbar" role="navigation">
               <div class="container-fluid">
@@ -19,24 +19,24 @@
                 </div>
                 <div class="collapse navbar-collapse navbar-responsive-collapse">
                   <ul class="nav navbar-nav navbar-nav-main">
-                    <li class="active"><a href="{{ app.url_generator.generate("main_index", {"lang": "fr"}) }}">Accueil</a></li>
+                    <li class="active"><a href="{{ app.url_generator.generate("main_index", {"_locale": "fr"}) }}">Accueil</a></li>
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Services <b class="caret"></b></a>
                       <ul class="dropdown-menu">
-                        <li><a href="{{ app.url_generator.generate("main_service_audit", {"lang": "fr"}) }}">Conseil</a></li>
-                        <li><a href="{{ app.url_generator.generate("main_service_backing", {"lang": "fr"}) }}">Accompagnement</a></li>
-                        <li><a href="{{ app.url_generator.generate("main_service_training", {"lang": "fr"}) }}">Formation</a></li>
-                        <li><a href="{{ app.url_generator.generate("main_service_support", {"lang": "fr"}) }}">Support</a></li>
+                        <li><a href="{{ app.url_generator.generate("main_service_audit", {"_locale": "fr"}) }}">Conseil</a></li>
+                        <li><a href="{{ app.url_generator.generate("main_service_backing", {"_locale": "fr"}) }}">Accompagnement</a></li>
+                        <li><a href="{{ app.url_generator.generate("main_service_training", {"_locale": "fr"}) }}">Formation</a></li>
+                        <li><a href="{{ app.url_generator.generate("main_service_support", {"_locale": "fr"}) }}">Support</a></li>
                       </ul>
                     </li>
                     <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">Fabrik <b class="caret"></b></a>
                       <ul class="dropdown-menu">
-                        <li><a href="{{ app.url_generator.generate("main_fabrik_pomm", {"lang":"fr"}) }}">Pomm</a></li>
+                        <li><a href="{{ app.url_generator.generate("main_fabrik_pomm", {"_locale":"fr"}) }}">Pomm</a></li>
                       </ul>
                     </li>
-                    <li><a href="{{ app.url_generator.generate("main_about", {"lang":"fr"}) }}">À propos</a></li>
-                    <li><a href="{{ app.url_generator.generate("main_contact", {"lang":"fr"}) }}">Contact</a></li>
+                    <li><a href="{{ app.url_generator.generate("main_about", {"_locale":"fr"}) }}">À propos</a></li>
+                    <li><a href="{{ app.url_generator.generate("main_contact", {"_locale":"fr"}) }}">Contact</a></li>
                   </ul>
                 </div><!--/.nav-collapse -->
               </div>

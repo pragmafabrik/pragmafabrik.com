@@ -28,64 +28,64 @@ class MainController implements ControllerProviderInterface
         $controller_collection->get('/service/support', [ $this, 'executeServiceSupport' ])->bind('main_service_support');
 
         $controller_collection
-            ->value('lang', 'fr')
-            ->assert('lang', 'fr|en')
+            ->value('_locale', 'fr')
+            ->assert('_locale', 'fr|en')
             ;
 
         return $controller_collection;
     }
 
-    public function executeIndex($lang)
+    public function executeIndex($_locale)
     {
-        return $this->app["twig"]->render(sprintf("%s/index.html.twig", $lang));
+        return $this->app["twig"]->render(sprintf("%s/index.html.twig", $_locale));
     }
 
-    public function executeNavbar($lang)
+    public function executeNavbar($_locale)
     {
-        return $this->app["twig"]->render(sprintf("%s/_navbar.html.twig", $lang));
+        return $this->app["twig"]->render(sprintf("%s/_navbar.html.twig", $_locale));
     }
 
-    public function executeFabrikPomm($lang)
+    public function executeFabrikPomm($_locale)
     {
-        return $this->app["twig"]->render(sprintf("%s/fabrik_pomm.html.twig", $lang));
+        return $this->app["twig"]->render(sprintf("%s/fabrik_pomm.html.twig", $_locale));
     }
 
-    public function executeServiceAudit($lang)
+    public function executeServiceAudit($_locale)
     {
-        return $this->app['twig']->render(sprintf("%s/service_audit.html.twig", $lang));
+        return $this->app['twig']->render(sprintf("%s/service_audit.html.twig", $_locale));
     }
 
-    public function executeServiceBacking($lang)
+    public function executeServiceBacking($_locale)
     {
-        return $this->app['twig']->render(sprintf("%s/service_backing.html.twig", $lang));
+        return $this->app['twig']->render(sprintf("%s/service_backing.html.twig", $_locale));
     }
 
-    public function executeServiceTraining($lang)
+    public function executeServiceTraining($_locale)
     {
-        return $this->app['twig']->render(sprintf("%s/service_training.html.twig", $lang));
+        return $this->app['twig']->render(sprintf("%s/service_training.html.twig", $_locale));
     }
 
-    public function executeServiceSupport($lang)
+    public function executeServiceSupport($_locale)
     {
-        return $this->app['twig']->render(sprintf("%s/service_support.html.twig", $lang));
+        return $this->app['twig']->render(sprintf("%s/service_support.html.twig", $_locale));
     }
 
-    public function executeAbout($lang)
+    public function executeAbout($_locale)
     {
-        return $this->app['twig']->render(sprintf("%s/about.html.twig", $lang));
+        return $this->app['twig']->render(sprintf("%s/about.html.twig", $_locale));
     }
 
-    public function executeContact($lang)
+    public function executeContact($_locale)
     {
         $form = $this->app['form.factory']
             ->createBuilder(new \Form\Contact())
             ->getForm()
             ;
 
-        return $this->app['twig']->render(sprintf("%s/contact.html.twig", $lang), [ 'form' => $form->createView() ]);
+        return $this->app['twig']->render(sprintf("%s/contact.html.twig", $_locale), [ 'form' => $form->createView() ]);
     }
 
-    public function executePostContact($lang)
+    public function executePostContact($_locale)
     {
         $form = $this->app['form.factory']
             ->createBuilder(new \Form\Contact())
@@ -104,20 +104,19 @@ class MainController implements ControllerProviderInterface
                     ->setTo([$this->app['config.swiftmailer']['destination']])
                     ->setBody(sprintf("from: %s %s (%s)\n\n%s", $values['email'], $values['name'], $values['company'], $values['message']))
                 );
-            $flash_message = [ 'fr' =>  'Votre demande de contact a été envoyée.', 'en' => 'Your contact request has been sent.' ];
-            $this->app['session']->getFlashBag()->add('success', $flash_message[$this->app['request']->get('lang', 'fr')]);
+            $this->app['session']->getFlashBag()->add('success', $this->app['translator']->trans('contact.success'));
 
-            return $this->app->redirect($this->app['url_generator']->generate('main_contact', ['lang' => $this->app['request']->get('lang')]));
+            return $this->app->redirect($this->app['url_generator']->generate('main_contact', ['_locale' => $this->app['request']->get('_locale')]));
         }
 
         $flash_message = [ 'fr' =>  'Votre demande de contact n\'a pu aboutir.', 'en' => 'Your contact query could not be fulfilled.' ];
-        $this->app['session']->getFlashBag()->add('error', $flash_message[$this->app['request']->get('lang', 'fr')]);
+        $this->app['session']->getFlashBag()->add('error', $flash_message[$this->app['request']->get('_locale', 'fr')]);
 
-        return $this->app['twig']->render(sprintf("%s/contact.html.twig", $lang), [ 'form' => $form->createView() ]);
+        return $this->app['twig']->render(sprintf("%s/contact.html.twig", $_locale), [ 'form' => $form->createView() ]);
     }
-    public function executeLegal($lang)
+    public function executeLegal($_locale)
     {
-        return $this->app['twig']->render(sprintf("%s/legal.html.twig", $lang));
+        return $this->app['twig']->render(sprintf("%s/legal.html.twig", $_locale));
     }
 
 }

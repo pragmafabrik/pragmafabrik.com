@@ -35,18 +35,18 @@
               </dl>
             </div>
 {% endif %}
-            <form role="form" class="form-contact" method="post" action="{{ app.url_generator.generate('main_post_contact', {'lang': 'fr'}) }}">
+            <form role="form" class="form-contact" method="post" action="{{ app.url_generator.generate('main_post_contact', {'_locale': 'en'}) }}">
               <div class="form-group{{ form["name"].vars["errors"]|length > 0 ? " has-error" : "" }}">
-                <label class="control-label" for="name-surname">Your name <span class="required">*</span> <small>{% for error in form["name"].vars["errors"] %}({{ error.getMessage() }}){% endfor %}</small></label>
-                <input type="text" class="form-control" name="contact[name]" id="name-surname" value="{{ form["name"].vars["value"] }}" placeholder="Entrez votre nom et prénom">
+                <label class="control-label" for="name-surname">Your name <span class="required">*</span> <small>{% for error in form["name"].vars["errors"] %}({{ app.translator.trans(error.getMessage()) }}){% endfor %}</small></label>
+                <input type="text" class="form-control" name="contact[name]" id="name-surname" value="{{ form["name"].vars["value"] }}" placeholder="Your first name and last name">
               </div>
               <div class="form-group{{ form["email"].vars["errors"]|length > 0 ? " has-error" : "" }}">
                 <label class="control-label" for="email">Email address <span class="required">*</span> <small>{% for error in form["email"].vars["errors"] %}({{ error.getMessage() }}){% endfor %}</small></label>
-                <input type="email" class="form-control" name="contact[email]" id="email" value="{{ form["email"].vars["value"] }}" placeholder="Entrez votre adresse email">
+                <input type="email" class="form-control" name="contact[email]" id="email" value="{{ form["email"].vars["value"] }}" placeholder="Your email address">
               </div>
               <div class="form-group">
                 <label for="business">Comany </label>
-                <input type="text" class="form-control" name="contact[company]" id="business" value="{{ form["company"].vars["value"] }}" placeholder="Entrez le nom de votre société">
+                <input type="text" class="form-control" name="contact[company]" id="business" value="{{ form["company"].vars["value"] }}" placeholder="Your company name">
               </div>
               <div class="form-group{{ form["message"].vars["errors"]|length > 0 ? " has-error" : "" }}">
                 <label class="control-label" for="message">Your message <span class="required">*</span> <small>{% for error in form["message"].vars["errors"] %}({{ error.getMessage() }}){% endfor %}</small></label>

@@ -2,7 +2,7 @@
 
 {% block title %} - Contactez nous{% endblock %}
 
-{% block description %}Contactez PragmaFabrik{% endblock %}
+{% block description %}Formulaire de contact{% endblock %}
 
 {% block content %}
     <section class="section page">
@@ -37,7 +37,7 @@
               </dl>
             </div>
 {% endif %}
-            <form role="form" class="form-contact" method="post" action="{{ app.url_generator.generate('main_post_contact', {'lang': 'fr'}) }}">
+            <form role="form" class="form-contact" method="post" action="{{ app.url_generator.generate('main_post_contact', {'_locale': 'fr'}) }}">
               <div class="form-group{{ form["name"].vars["errors"]|length > 0 ? " has-error" : "" }}">
                 <label class="control-label" for="name-surname">Nom et prénom <span class="required">*</span> <small>{% for error in form["name"].vars["errors"] %}({{ error.getMessage() }}){% endfor %}</small></label>
                 <input type="text" class="form-control" name="contact[name]" id="name-surname" value="{{ form["name"].vars["value"] }}" placeholder="Entrez votre nom et prénom">

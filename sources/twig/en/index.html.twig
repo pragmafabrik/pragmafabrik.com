@@ -15,8 +15,8 @@
             <p class="home-intro-subtitle">DevOps Culture</p>
             <p class="home-intro-txt">A pragmatic and transverse technical approach. <br />dedicated to business oriented web applications au service des applications web à forte composante métier</p>
             <p>
-              <a href="{{ app.url_generator.generate('main_service_audit', {'lang': 'en'}) }}" class="btn btn-orange">Our services</a>
-              <a href="{{ app.url_generator.generate('main_service_training', {'lang': 'en'}) }}" class="btn btn-orange">Our trainings</a>
+              <a href="{{ app.url_generator.generate('main_service_audit', {'_locale': 'en'}) }}" class="btn btn-orange">Our services</a>
+              <a href="{{ app.url_generator.generate('main_service_training', {'_locale': 'en'}) }}" class="btn btn-orange">Our trainings</a>
             </p>
           </div>
           <div class="col-md-3">
@@ -36,7 +36,7 @@
         <div class="row">
           <div class="col-sm-6">
             <p>Pomm is a model management framework dedicated to Postgresql. It proposes a different approach from ORM to benefit from the underlying engine's features and performances.</p>
-            <a href="{{ app.url_generator.generate('main_fabrik_pomm', {'lang': 'fr'}) }}" class="btn btn-white">Discover Pomm</a>
+            <a href="{{ app.url_generator.generate('main_fabrik_pomm', {'_locale': 'en'}) }}" class="btn btn-white">Discover Pomm</a>
           </div>
           <div class="col-sm-6">
             <p class="home-pomm-quote">Pomm proposes a <strong>new approach</strong> to data manipulation!</p>
