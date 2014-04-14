@@ -62,10 +62,12 @@ $app['translator.domains'] = [
         'fr' => [
             'error.404' => 'La ressource demandée n\'existe pas.',
             'contact.success' => 'Votre demande de contact a été envoyée',
+            'legal.notice' => 'mentions légales',
             ],
         'en' => [
             'error.404' => 'The content you are asking does not exist.',
             'contact.success' => 'Your contact request has been sent',
+            'legal.notice' => 'Legal notice',
             ]
         ],
     'validators' => [

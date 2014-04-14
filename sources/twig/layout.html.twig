@@ -54,7 +54,7 @@
 
     <div class="bottom">
       <ul class="nav-btm">
-        <li><a href="{{ app.url_generator.generate("main_legal", { "_locale": 'fr' }) }}">Mentions légales</a></li>
+        <li><a href="{{ app.url_generator.generate("main_legal", { "_locale": app.locale }) }}">{% trans %}legal.notice{% endtrans %}</a></li>
       </ul>
     </div>
   </body>
