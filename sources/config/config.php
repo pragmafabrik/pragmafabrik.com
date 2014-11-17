@@ -16,7 +16,7 @@ $app['config.swiftmailer'] = array(
     'port' => 465,
     'auth_mode' => 'login',
     'encryption' => 'ssl',
-    'username' =>  'gregoire.hubert.pro@gmail.com',
-    'password' =>  'Quimperle29',
+    'username' =>  '',
+    'password' =>  '',
     'destination' => 'gregoire.hubert@pragmafabrik.com'
 );
